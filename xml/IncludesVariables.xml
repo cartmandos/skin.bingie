@@ -309,7 +309,7 @@
 	
 	<variable name="LogoImage">
 		<value condition="Skin.String(CustomLogoImage)">$INFO[Skin.String(CustomLogoImage)]</value>
-        <value condition="Skin.String(BackgroundOverlayColor, white) + ![String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles)]">home/kodi_logo_dark.png</value>
+        <value condition="Skin.String(BackgroundOverlayColor, white)">home/kodi_logo_dark.png</value>
         <value>home/kodi_logo_light.png</value>
     </variable>
 	
@@ -567,21 +567,6 @@
     <value condition="!String.IsEmpty(Window(Home).property(SkinHelper.ListItem.ExtendedPlot))">$INFO[Window(Home).property(SkinHelper.ListItem.ExtendedPlot)]</value>
     <value condition="!String.IsEmpty(Window(Home).property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).property(SkinHelper.ListItem.Plot)]</value>
   </variable>
-    
-   <variable name="HomeButtonDownAction">
-		<value condition="!Skin.HasSetting(DisableAllSubmenus) + !String.IsEmpty(Container(900).ListItem.Property(widget)) + [String.IsEqual(Skin.String(HomeLayout),2) + [String.IsEqual(Container(900).Position,1) | String.IsEqual(Container(900).Position,3) | String.IsEqual(Container(900).Position,5)]]">$VAR[focusWidget]</value>
-        <value condition="!Skin.HasSetting(DisableAllSubmenus) + !String.IsEmpty(Container(900).ListItem.Property(widget)) + [String.IsEqual(Skin.String(HomeLayout),2small) + [String.IsEqual(Container(900).Position,1) | String.IsEqual(Container(900).Position,3) | String.IsEqual(Container(900).Position,5) | String.IsEqual(Container(900).Position,7) | String.IsEqual(Container(900).Position,9)]]">$VAR[focusWidget]</value>
-		<value condition="!Skin.HasSetting(DisableAllSubmenus) + !String.IsEmpty(Container(900).ListItem.Property(hasSubmenu)) + String.Contains(Container(900).ListItem.Property(hasSubmenu), True) + [Integer.IsGreater(Container(4444).NumItems,0) | Integer.IsGreater(Container(4445).NumItems,0)] + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)]">Control.SetFocus(4444,0)</value>
-		<value condition="!Skin.HasSetting(DisablePowerMenu)">ActivateWindow(ShutdownMenu)</value>
-   </variable>
-   
-   <variable name="HomeButtonUpAction">
-		<value condition="!Skin.HasSetting(DisableAllWidgets) + !String.IsEmpty(Container(900).ListItem.Property(widget)) + String.IsEqual(Skin.String(HomeLayout),2) + [String.IsEqual(Container(900).Position,0) | String.IsEqual(Container(900).Position,2) | String.IsEqual(Container(900).Position,4)]">$VAR[focusWidget]</value>
-        <value condition="!Skin.HasSetting(DisableAllWidgets) + !String.IsEmpty(Container(900).ListItem.Property(widget)) + String.IsEqual(Skin.String(HomeLayout),2small) + [String.IsEqual(Container(900).Position,0) | String.IsEqual(Container(900).Position,2) | String.IsEqual(Container(900).Position,4) | String.IsEqual(Container(900).Position,6) | String.IsEqual(Container(900).Position,8)]">$VAR[focusWidget]</value>
-        <value condition="!Skin.HasSetting(DisableAllWidgets) + !String.IsEmpty(Container(900).ListItem.Property(widget)) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),1small)]">$VAR[focusWidget]</value>
-        <value condition="!Skin.HasSetting(DisableAllWidgets) + !String.IsEmpty(Container(900).ListItem.Property(widget))">$VAR[focusWidget]</value>
-		<value condition="Skin.HasSetting(ShowProfile)">Control.SetFocus(890,0)</value>
-   </variable>
   
     <variable name="ProfileLabel">
 		<value condition="!Control.HasFocus(890)">$INFO[System.ProfileName]</value>
@@ -848,8 +833,8 @@
      </variable>
      
      <variable name="widgetrowslabel">
-        <value condition="String.IsEqual(Container(211).ListItem.Property(multiwidget),single2) + !$EXP[IsVerticalLayout]">$LOCALIZE[31751]</value>
-        <value condition="String.IsEqual(Container(211).ListItem.Property(multiwidget),multi2) + !$EXP[IsVerticalLayout]">$LOCALIZE[31753]</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(multiwidget),single2)">$LOCALIZE[31751]</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(multiwidget),multi2)">$LOCALIZE[31753]</value>
         <value condition="!String.IsEmpty(Container(211).ListItem.Property(multiwidget.name))">$INFO[Container(211).ListItem.Property(multiwidget.name)]</value>
         <value>$LOCALIZE[31753]</value>
      </variable>
@@ -1451,7 +1436,7 @@
     </variable>
 
     <variable name="ActualIcon">
-        <value condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !String.IsEmpty(ListItem.ActualIcon)">$INFO[ListItem.ActualIcon]</value>
+        <value condition="!String.IsEmpty(ListItem.ActualIcon)">$INFO[ListItem.ActualIcon]</value>
         <value>ListItem.Icon</value>
     </variable>
 </includes>

@@ -711,7 +711,7 @@
                                 <param name="force_tags" value="$PARAM[force_tags]" />
                                 <param name="widgetTags" value="$PARAM[widgetTags]" />
                             </include>
-                            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">New_Episodes_Tag_Overlay</include>
+                            <include>New_Episodes_Tag_Overlay</include>
                         </control>
                     </control>
                 </focusedlayout>

@@ -27,7 +27,7 @@
         <control type="grouplist" id="9999">
             <animation effect="fade" time="300">WindowOpen</animation>
             <top>65</top>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
             <left>90</left>
             <orientation>vertical</orientation>
             <itemgap>-10</itemgap>

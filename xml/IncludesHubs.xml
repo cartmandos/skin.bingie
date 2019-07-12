@@ -8,12 +8,12 @@
             <visible>[Container($PARAM[widgetid]).IsUpdating | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)] + Skin.HasSetting(LockHubWidgets)</visible>
             <width>100%</width>
             <height>40</height>
-            <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+            <include content="BingieUnfocusedWidgetFade">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">BingieNoCircularWidgetHeaderAnim</include>
+            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">BingieNoCircularWidgetHeaderAnim</include>
             <!-- fixed focus navigation -->
-            <include content="SetFixedVerticalNavigationProps" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+            <include content="SetFixedVerticalNavigationProps">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
             <include content="Fixed_Focus_Navigation_Factory" condition="Skin.HasSetting(LockHubWidgets) + Skin.HasSetting(EnableFixedFocusWidgets)">
@@ -114,7 +114,7 @@
             <onback condition="$EXP[IsPlayingUnrecognizedContent]">SetProperty(KeepPlayingPreview,1,Home)</onback>
             <onback condition="!$EXP[IsPlayingRecognizedContent]">900</onback>
             <!-- fixed focus navigation -->
-            <include content="SetFixedVerticalNavigationProps" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
+            <include content="SetFixedVerticalNavigationProps">
                 <param name="widgetid" value="$PARAM[widgetid]"/>
             </include>
             <include content="Fixed_Focus_Navigation_Factory" condition="Skin.HasSetting(LockHubWidgets) + Skin.HasSetting(EnableFixedFocusWidgets)">

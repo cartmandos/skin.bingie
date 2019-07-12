@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
-<addon id="skin.titan.bingie" version="1.0.3-RC1" name="Titan BINGIE" provider-name="cartman.dos, marcelveldt">
+<addon id="skin.bingie" version="0.1.0" name="BINGIE" provider-name="cartman.dos">
 	<requires>
 		<import version="5.14.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.0.0"/>
@@ -17,14 +17,14 @@
 		<res width="1920" height="1200" aspect="16:10" default="false" folder="xml" />
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">BINGIE... The new Titan skin for Kodi Leia.</summary>
-		<description>Titan is back for Kodi Leia with the new BINGIE layout!</description>
+		<summary lang="en_GB">BINGIE</summary>
+		<description></description>
 		<platform>all</platform>
 		<license>GPL v2.0</license>
 		<forum>https://forum.kodi.tv/showthread.php?tid=334820</forum>
 		<website>https://forum.kodi.tv/showthread.php?tid=334820</website>
 		<email></email>
-		<source>https://github.com/cartmandos/skin.titan.bingie/</source>
+		<source>https://github.com/cartmandos/skin.bingie/</source>
 		<assets>
 			<icon>resources/icon.png</icon>
 			<fanart>resources/fanart.jpg</fanart>
@@ -41,7 +41,7 @@
             <screenshot>resources/screenshot010.jpg</screenshot>
 		</assets>
 		<news>
-			[B]Titan BINGIE v1[/B][CR]Follow the forum thread about the latest news for the skin.[CR]https://forum.kodi.tv/showthread.php?tid=334820
+			[B]BINGIE[/B][CR]Follow the forum thread about the latest news for the skin.[CR]https://forum.kodi.tv/showthread.php?tid=334820
 		</news>
 	</extension>
 </addon>

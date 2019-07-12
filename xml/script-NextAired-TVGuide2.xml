@@ -427,7 +427,6 @@
                     <label>31141</label>
                     <onclick>Skin.ToggleSetting(ShowFanartBackground)</onclick>
                     <selected>Skin.HasSetting(ShowFanartBackground)</selected>
-					<visible>!Control.IsVisible(507)</visible>
                 </control>
 
             </control>

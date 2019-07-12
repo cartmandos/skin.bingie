@@ -108,7 +108,7 @@
         </control>
         <!-- global background -->
         <control type="multiimage" id="99004">
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">HiddenObject</include>
+            <include>HiddenObject</include>
             <include>FullscreenDimensions</include>
             <imagepath background="true" fallback="colors/color_black.png">$VAR[backgroundVar]</imagepath>
             <aspectratio>scale</aspectratio>
@@ -126,7 +126,7 @@
             <width>1</width>
             <height>1</height>
             <texture background="true">$VAR[fanartBackground]</texture>
-            <visible>Skin.HasSetting(ShowFanartBackground) | !String.IsEmpty(Window(Home).Property(bingieviews)) | Control.IsVisible(523) | Control.IsVisible(526)</visible>
+            <visible>Skin.HasSetting(ShowFanartBackground) | Control.IsVisible(523) | Control.IsVisible(526)</visible>
             <include condition="Window.IsMedia">disabledFanart</include>
         </control>
         <!-- hidden container for categories fanart -->
@@ -268,8 +268,8 @@
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart)) + Window.IsActive(Home) + String.Contains(Container(900).ListItem.Property(Background),widgetfanart)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
 
         <!-- fallback for bingie in menu / skinhelper provided art in media windows -->
-        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.fanart)) + String.IsEqual(Skin.String(HomeLayout),bingie) + $EXP[IsBingieViewsActive] + !Skin.HasSetting(UseSectionBackground)">$INFO[Window(Home).Property(ListItem.Art.fanart)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart)) + [String.IsEqual(Skin.String(HomeLayout),bingie) + $EXP[IsBingieViewsActive] + !Skin.HasSetting(UseSectionBackground)] | !Window.IsActive(Home)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.fanart)) + $EXP[IsBingieViewsActive] + !Skin.HasSetting(UseSectionBackground)">$INFO[Window(Home).Property(ListItem.Art.fanart)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart)) + [$EXP[IsBingieViewsActive] + !Skin.HasSetting(UseSectionBackground)] | !Window.IsActive(Home)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
     </variable>
 
     <variable name="fanartBackground_extendedinfo">

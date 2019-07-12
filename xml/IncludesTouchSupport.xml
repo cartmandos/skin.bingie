@@ -1,112 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 
-<include name="TouchControlsHome">
-	<!-- page button left -->
-	<control type="button">
-		<left>0</left>
-		<top>730</top>
-		<width>30</width>
-		<height>149</height>
-		<align>center</align>
-		<aligny>center</aligny>
-		<label/>
-		<pulseonselect>false</pulseonselect>
-		<texturefocus colordiffuse="white">home/basichome_left.png</texturefocus>
-		<texturenofocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">home/basichome_left.png</texturenofocus>
-		<onclick>PageUp(60)</onclick>
-		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasPrevious + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
-		<visible>Skin.HasTheme(classic)</visible>
-	</control>
-	
-	<!-- page button left -->
-	<control type="button">
-		<left>0</left>
-		<top>730</top>
-		<width>30</width>
-		<height>149</height>
-		<align>center</align>
-		<aligny>center</aligny>
-		<label/>
-		<pulseonselect>false</pulseonselect>
-		<textcolor fallback="white">$INFO[Skin.String(ButtonTextColor)]</textcolor>
-        <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
-        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-		<font>Light36</font>
-        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="5">diffuse/panel.png</texturefocus>
-        <texturenofocus colordiffuse="$INFO[Skin.String(GeneralPanelsColor)]" border="5">diffuse/panel.png</texturenofocus>
-        <textoffsetx>0</textoffsetx>
-		<onclick>PageUp(60)</onclick>
-		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasPrevious + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
-		<visible>!Skin.HasTheme(classic)</visible>
-	</control>
-	<control type="image">
-		<left>3</left>
-		<top>730</top>
-		<width>20</width>
-		<height>149</height>
-		<texture flipx="true">dialogs/videoinfo/info/arrowright.png</texture>
-		<aspectratio>keep</aspectratio>
-		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasPrevious + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
-		<visible>!Skin.HasTheme(classic)</visible>
-	</control>
-
-	<!-- page button right -->
-	<control type="button">
-		<right>0</right>
-		<top>730</top>
-		<width>30</width>
-		<height>149</height>
-		<align>center</align>
-		<aligny>center</aligny>
-		<label/>
-		<pulseonselect>false</pulseonselect>
-		<texturefocus colordiffuse="white">home/basichome_right.png</texturefocus>
-		<texturenofocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]">home/basichome_right.png</texturenofocus>
-		<onclick>PageDown(60)</onclick>
-		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasNext + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
-		<visible>Skin.HasTheme(classic)</visible>
-	</control>
-	
-	<!-- page button right -->
-	<control type="button">
-		<right>0</right>
-		<top>730</top>
-		<width>30</width>
-		<height>149</height>
-		<align>center</align>
-		<aligny>center</aligny>
-		<label/>
-		<pulseonselect>false</pulseonselect>
-		<textcolor fallback="white">$INFO[Skin.String(ButtonTextColor)]</textcolor>
-        <focusedcolor>$INFO[Skin.String(ButtonFocusTextColor)]</focusedcolor>
-        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-		<font>Light36</font>
-        <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="5">diffuse/panel.png</texturefocus>
-        <texturenofocus colordiffuse="$INFO[Skin.String(GeneralPanelsColor)]" border="5">diffuse/panel.png</texturenofocus>
-        <textoffsetx>0</textoffsetx>
-		<onclick>PageDown(60)</onclick>
-		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasNext + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
-		<visible>!Skin.HasTheme(classic)</visible>
-	</control>
-	<control type="image">
-		<right>3</right>
-		<top>730</top>
-		<width>20</width>
-		<height>149</height>
-		<texture>dialogs/videoinfo/info/arrowright.png</texture>
-		<aspectratio>keep</aspectratio>
-		<animation effect="slide" start="0,0" end="0,85" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced)">Conditional</animation>
-		<visible>Control.IsVisible(900) + Container(900).HasNext + ![Control.IsVisible(77551) | !String.IsEmpty(Window(Home).Property(ShowWidget))]</visible>
-		<visible>!Skin.HasTheme(classic)</visible>
-	</control>
-</include>
-
 <include name="touchbutton_layout">
     <label/>
     <include>animation_fade_visible_hidden</include>
@@ -170,9 +64,7 @@
 		<animation effect="slide" start="0,0" end="-25,-14" center="auto" easing="out" tween="back" time="0" condition="Skin.HasTheme(classic) + !Window.IsActive(Home)">Conditional</animation>
 		<animation effect="slide" start="0,0" end="-25,3" center="auto" easing="out" tween="back" time="0" condition="Skin.HasTheme(classic) + Window.IsActive(Home)">Conditional</animation>
         <animation effect="slide" start="0,0" end="0,-40" center="auto" easing="out" tween="back" time="0" condition="Skin.HasTheme(classic) + [Window.IsActive(settings) | Window.IsActive(SettingsCategory.xml) | Window.IsActive(skinsettings) | Window.IsActive(systeminfo) | Window.IsActive(profiles)]">Conditional</animation>
-		<animation effect="slide" start="0,0" end="12,19" center="auto" easing="out" tween="back" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced) + Window.IsActive(Home)">Conditional</animation>
-		<animation time="200" effect="fade" start="100" end="0" delay="0" condition="Control.IsVisible(4444) + [String.Contains(Skin.String(HomeLayout),1) | String.Contains(Skin.String(HomeLayout),2)]">Conditional</animation>
-		<visible>!Window.IsActive(startup) + [!Skin.HasSetting(CompactHeader) | [Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),simplever)]]</visible>
+		<visible>!Window.IsActive(startup) + [!Skin.HasSetting(CompactHeader)]</visible>
 		
 		<control type="radiobutton" id="199101">
 			<include>touchbutton_layout</include>
@@ -214,29 +106,6 @@
 			<onclick condition="String.IsEqual(Window(Home).Property(ShowViewSubMenu),show)">ClearProperty(ShowViewSubMenu,Home)</onclick>
 			<visible>Control.IsVisible(9000) + !Window.IsActive(settings) + !Window.IsActive(settingscategory.xml) + !Window.IsActive(contextmenu)</visible>
 		</control>
-		<!-- show widget -->
-		<control type="radiobutton" id="199105">
-			<include>touchbutton_layout</include>
-            <textureradiofocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">touchcontrols/widget.png</textureradiofocus>
-            <textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">touchcontrols/widget.png</textureradionofocus>
-            <selected>Control.HasFocus(199105)</selected>
-			<onclick condition="!String.IsEmpty(Window(Home).Property(ShowWidget))">Control.SetFocus(900)</onclick>
-			<onclick condition="String.IsEmpty(Window(Home).Property(ShowWidget))">SetProperty(ShowWidget,1,Home)</onclick>
-			<onclick condition="!String.IsEmpty(Window(Home).Property(ShowWidget))">ClearProperty(ShowWidget,Home)</onclick>
-			<visible>Window.IsActive(Home) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),1small) | String.IsEqual(Skin.String(HomeLayout),2small) | String.Contains(Skin.String(HomeLayout),hor)]</visible>
-			<visible>!String.IsEmpty(Container(900).ListItem.Property(widget))</visible>
-		</control>
-		<!-- show submenu -->
-		<control type="radiobutton" id="199106">
-			<include>touchbutton_layout</include>
-            <textureradiofocus colordiffuse="$INFO[Skin.String(ButtonFocusTextColor)]">touchcontrols/menu.png</textureradiofocus>
-            <textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">touchcontrols/menu.png</textureradionofocus>
-            <selected>Control.HasFocus(199106)</selected>
-			<onclick condition="String.Contains(Window(Home).Property(submenu),show)">SetProperty(submenu,hide,Home)</onclick>
-			<onclick condition="!String.Contains(Window(Home).Property(submenu),show)">SetProperty(submenu,show,Home)</onclick>
-			<visible>Window.IsActive(Home) + [String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),3) | String.IsEqual(Skin.String(HomeLayout),1small) | String.IsEqual(Skin.String(HomeLayout),2small) | String.IsEqual(Skin.String(HomeLayout),3small) | String.Contains(Skin.String(HomeLayout),hor)] </visible>
-			<visible>Integer.IsGreater(Container(4444).NumItems,0)</visible>
-		</control>
 	
 	</control>
 
@@ -244,9 +113,8 @@
 	<control type="group">
 		<bottom>0</bottom>
 		<height>60</height>
-		<visible>Window.IsActive(Home) + !Skin.HasSetting(HideBatteryStatus) + ![String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles)] + Control.IsVisible(99123)</visible>
+		<visible>Window.IsActive(Home) + !Skin.HasSetting(HideBatteryStatus) + Control.IsVisible(99123)</visible>
 		<animation time="200" effect="fade" start="100" end="0" delay="0" condition="String.Contains(Window(Home).Property(submenu),show)">Conditional</animation>
-		<animation effect="slide" start="0,0" end="-25,15" center="auto" easing="out" tween="back" time="0" condition="String.IsEqual(Skin.String(HomeLayout),enhanced) + Window.IsActive(Home)">Conditional</animation>
 		<animation effect="slide" start="0,0" end="-20,0" center="auto" easing="out" tween="back" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
 		<control type="group">
 			<posx>110r</posx>
@@ -294,7 +162,6 @@
 	</include>
     
     <variable name="BatteryColorDiffuse">
-        <value condition="Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),lowhorizontal)">$INFO[Skin.String(MainMenuTextColor)]</value>
         <value>$INFO[Skin.String(FooterTextColor)]</value>
     </variable>
 

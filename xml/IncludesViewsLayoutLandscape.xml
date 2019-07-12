@@ -13,7 +13,7 @@
         <include>ThumbsViewItemLayout</include>
      </include>
     <include name="ThumbsViewLayoutFocus">
-        <include condition="![String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(EnableFixedFrameWidgets) + Skin.HasSetting(EnableFixedFocusWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]]">ThumbsFO</include>
+        <include condition="![Skin.HasSetting(EnableFixedFrameWidgets) + Skin.HasSetting(EnableFixedFocusWidgets) + [[Window.IsActive(Home) | $EXP[IsBingieListsActive]] | [[$EXP[IsBingieHubsActive]] + Skin.HasSetting(LockHubWidgets)]]]">ThumbsFO</include>
         <control type="image">
             <!--focus image-->
             <texture border="5">home/home_focus.png</texture>

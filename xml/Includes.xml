@@ -28,7 +28,6 @@
     <include file="IncludesViewsLayoutPoster.xml" />
     <include file="IncludesViewsLayoutLandscape.xml" />
     <include file="IncludesViewsLayoutSquare.xml" />
-    <include file="IncludesViewsLayoutBanner.xml" />
     <include file="IncludesOSD.xml" />
     <include file="IncludesSkinSettings.xml" />
     <include file="IncludesContextMenu.xml" />
@@ -36,12 +35,6 @@
     <include file="IncludesHubs.xml" />
     <include file="IncludesBingieKeyboard.xml"/>
     <include file="IncludesBingieSearch.xml"/>
-    <include file="IncludesHomeTitanTiles.xml" />
-    <include file="IncludesHomeTitanTilesSubMenu.xml" />
-	<include file="IncludesHomeEnhanced.xml" />
-	<include file="IncludesHomeHorizontal.xml" />
-	<include file="IncludesHomeVertical.xml" />
-    <include file="IncludesHomeWin10.xml"/>
     <include file="IncludesSkinShortcuts.xml" />
 	<include file="IncludesDefaultSkinSettings.xml" />
     <include file="IncludesDefaultSkinHubs.xml" />
@@ -106,12 +99,6 @@
     <expression name="IsMenuEntryActive">[Window.IsActive(Home) + String.IsEqual(ListItem.Property(path), ActivateWindow(home,return))] | [Window.IsActive(1110) + String.IsEqual(ListItem.Property(path), ActivateWindow(1110,return))] | [Window.IsActive(1111) + String.IsEqual(ListItem.Property(path), ActivateWindow(1111,return))] | [Window.IsActive(1112) + String.IsEqual(ListItem.Property(path), ActivateWindow(1112,return))] | [Window.IsActive(1113) + String.IsEqual(ListItem.Property(path), ActivateWindow(1113,return))] | [Window.IsActive(1114) + String.IsEqual(ListItem.Property(path), ActivateWindow(1114,return))] | [Window.IsActive(1115) + String.IsEqual(ListItem.Property(path), ActivateWindow(1115,return))] | [Window.IsActive(1109) + String.IsEqual(ListItem.Property(path), ActivateWindow(1109,return))] | [Window.IsActive(1116) + String.IsEqual(ListItem.Property(path), ActivateWindow(1116,return))]</expression>
 
     <expression name="IsKnownMenuEntryPath">String.IsEqual(ListItem.Property(path), ActivateWindow(home,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1110,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1111,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1112,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1113,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1114,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1115,return)) | String.IsEqual(ListItem.Property(path), ActivateWindow(1109,return))</expression>
-
-    <expression name="IsVerticalLayout">String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),simplever_tiles) | String.IsEqual(Skin.String(HomeLayout),verticalbig)</expression>
-
-    <expression name="IsHorizontalLayout">String.IsEqual(Skin.String(HomeLayout),simplehor) | String.IsEqual(Skin.String(HomeLayout),lowhorizontal) | String.IsEqual(Skin.String(HomeLayout),lowhorizontal_big)</expression>
-
-    <expression name="IsTilesLayout">String.IsEqual(Skin.String(HomeLayout),1) | String.IsEqual(Skin.String(HomeLayout),2) | String.IsEqual(Skin.String(HomeLayout),3) | String.IsEqual(Skin.String(HomeLayout),1small) | String.IsEqual(Skin.String(HomeLayout),2small) | String.IsEqual(Skin.String(HomeLayout),3small)</expression>
 
     <expression name="IsSupportedFixedFrameLayout">String.IsEqual(Skin.String(widgetstyle),landscape) | String.IsEqual(Skin.String(widgetstyle),poster) | String.IsEqual(Skin.String(widgetstyle),landscapelarge) | String.IsEqual(Skin.String(widgetstyle),landscapesmall) | String.IsEqual(Skin.String(widgetstyle),smallposter)</expression>
 

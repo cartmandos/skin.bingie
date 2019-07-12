@@ -932,7 +932,7 @@
                 <height>30</height>
                 <label/>
                 <visible>!String.IsEmpty(Control.GetLabel(44226)) + !String.StartsWith(Window.Property(xmlfile),My)</visible>
-                <visible>!String.StartsWith(ListItem.Path,videodb://movies/sets/) + !String.Contains(Window(Home).Property(ListItem.Rating),songrating) + ![Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]</visible>
+                <visible>!String.StartsWith(ListItem.Path,videodb://movies/sets/) + !String.Contains(Window(Home).Property(ListItem.Rating),songrating) + !Window.IsActive(Home)</visible>
             </control>
             <control type="image">
                 <width>36</width>
@@ -941,7 +941,7 @@
                 <texture>flags/rating.png</texture>
                 <bordersize>3</bordersize>
                 <visible>!String.IsEmpty(Control.GetLabel(44226)) + !String.StartsWith(Window.Property(xmlfile),My)</visible>
-                <visible>!String.StartsWith(ListItem.Path,videodb://movies/sets/) + !String.Contains(Window(Home).Property(ListItem.Rating),songrating) + ![Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]</visible>
+                <visible>!String.StartsWith(ListItem.Path,videodb://movies/sets/) + !String.Contains(Window(Home).Property(ListItem.Rating),songrating) + !Window.IsActive(Home)</visible>
             </control>
             <control type="label" id="44226">
                 <font>flags</font>
@@ -949,7 +949,7 @@
                 <height>30</height>
                 <textcolor>$VAR[mediaFlagsFontColor]</textcolor>
                 <label>$VAR[rating_value_label]</label>
-                <visible>!String.StartsWith(ListItem.Path,videodb://movies/sets/) + !String.StartsWith(Window.Property(xmlfile),My) + !String.Contains(Window(Home).Property(ListItem.Rating),songrating) + ![Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]</visible>
+                <visible>!String.StartsWith(ListItem.Path,videodb://movies/sets/) + !String.StartsWith(Window.Property(xmlfile),My) + !String.Contains(Window(Home).Property(ListItem.Rating),songrating) + !Window.IsActive(Home)</visible>
             </control>
             <control type="label">
                 <!-- whitespace -->

@@ -174,7 +174,7 @@
         <control type="group" id="88888">
             <!--Panel-->
             <visible>!Skin.HasSetting(DisableNowPlayingInfoBar)</visible>
-            <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !ControlGroup(400).HasFocus() + !Control.IsVisible(77551)</visible>
+            <visible>!Window.IsActive(notification) + !Window.IsActive(extendedprogressdialog) + !ControlGroup(400).HasFocus()</visible>
 			<visible>[[Player.HasVideo + !String.IsEmpty(VideoPlayer.Title)] | [Player.HasAudio + !String.IsEmpty(MusicPlayer.Title)] | Player.IsInternetStream]</visible>
 			<visible>String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + String.IsEmpty(Window(Home).Property(TrailerPlaying))</visible>
 			<include>FullscreenDimensions</include>

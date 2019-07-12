@@ -140,9 +140,7 @@
 
     <include name="CustomBingieWinProps">
         <onload>ClearProperty(ShowViewSubMenu,Home)</onload>
-        <onload>SetProperty(bingieviews,1,Home)</onload>
         <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
-        <onunload condition="!String.IsEqual(Skin.String(HomeLayout),bingie)">ClearProperty(bingieviews,Home)</onunload>
         <onunload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunload>
         <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
     </include>
@@ -538,7 +536,7 @@
         <value condition="$EXP[IsMainMenuOpened] + !Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration.Hours)) + Integer.IsEqual(Window(Home).Property(ListItem.Duration.Hours),0)">$INFO[Window(Home).Property(ListItem.Duration.Mins),,m]</value>
         <!-- Hours disabled -->
         <value condition="Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),,m]</value>
-        <value condition="$EXP[IsMainMenuOpened] + Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)(mins),,m]</value>
+        <value condition="$EXP[IsMainMenuOpened] + Skin.HasSetting(DisableHoursDuration) + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration.Mins),,m]</value>
         <!-- regular format fallback -->
         <value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]</value>
         <value condition="$EXP[IsMainMenuOpened] + !String.IsEmpty(Window(Home).Property(ListItem.Duration))">$INFO[Window(Home).Property(ListItem.Duration)]</value>
@@ -2987,7 +2985,7 @@
         <height>210</height>
         <itemlayout height="210" width="210">
             <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
+                <include content="left" condition="!Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
                 <width>210</width>
@@ -3005,7 +3003,7 @@
         </itemlayout>
         <focusedlayout height="210" width="210">
             <control type="group">
-                <include content="left" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">
+                <include content="left" condition="!Skin.HasSetting(EnhancedHome_Circular)">
                     <param name="left" value="bingie_no_circular_posx"/>
                 </include>
                 <width>210</width>
@@ -3124,7 +3122,6 @@
             <param name="containerType" value="fixedlist" />
             <param name="contentStyle" value="normal" />
             <param name="widgetStyle" value="widget_layout_bingie_square" />
-            <param name="widgetInfoPanel" value="" />
             <param name="visibility" value="true" />
             <param name="widgetTarget" value="" />
             <param name="widgetPath" value="pvr://channels/tv/*?view=lastplayed" />
@@ -3144,7 +3141,6 @@
             <param name="containerType" value="fixedlist" />
             <param name="contentStyle" value="normal" />
             <param name="widgetStyle" value="widget_layout_bingie_square" />
-            <param name="widgetInfoPanel" value="" />
             <param name="visibility" value="true" />
             <param name="widgetTarget" value="" />
             <param name="widgetPath" value="pvr://channels/tv/*" />
@@ -3164,7 +3160,6 @@
             <param name="containerType" value="fixedlist" />
             <param name="contentStyle" value="normal" />
             <param name="widgetStyle" value="widget_layout_landscape" />
-            <param name="widgetInfoPanel" value="" />
             <param name="visibility" value="true" />
             <param name="widgetTarget" value="" />
             <param name="widgetPath" value="pvr://recordings/tv/active?view=flat" />
@@ -3184,7 +3179,6 @@
             <param name="containerType" value="fixedlist" />
             <param name="contentStyle" value="pvr" />
             <param name="widgetStyle" value="widget_layout_landscape" />
-            <param name="widgetInfoPanel" value="" />
             <param name="visibility" value="true" />
             <param name="widgetTarget" value="" />
             <param name="widgetPath" value="" />

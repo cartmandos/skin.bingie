@@ -599,7 +599,6 @@
             [Control.IsVisible(50) + Container.Content(movies)] |
             [Control.IsVisible(516) + [Container.Content(albums) | Container.Content(songs)] + !String.IsEmpty(ListItem.Album) + !String.IsEmpty(ListItem.Art(thumb))]
             </visible>
-            <visible>!Control.IsVisible(88882) + !Control.IsVisible(88883)</visible>
 		</control>
 
 		<control type="radiobutton" id="3070">
@@ -613,7 +612,6 @@
             [Control.IsVisible(504) + Skin.HasSetting(View504_ShowCDart)] |
             [Control.IsVisible(522) + Skin.HasSetting(View522_ShowCDart)]
 			</visible>
-            <visible>!Control.IsVisible(88882) + !Control.IsVisible(88883)</visible>
 		</control>
 		<control type="radiobutton" id="3080">
 			<!--Hide background panel-->
@@ -660,16 +658,6 @@
             </selected>
 			<visible>Control.IsVisible(51) | Control.IsVisible(504)</visible>
 			<visible>![Container.content(tvshows) + Skin.HasSetting(ListViewShowBanners)]</visible>
-		</control>
-		
-		<control type="radiobutton" id="3087">
-			<!--use banners for tv shows-->
-			<include>SideBladeMenuButton</include>
-			<label>31454</label>
-            <onclick condition="Control.IsVisible(50)">Skin.ToggleSetting(View50_ShowBanners)</onclick>
-			<selected>[Control.IsVisible(50) + Skin.HasSetting(View50_ShowBanners)]</selected>
-			<visible>Control.IsVisible(50)</visible>
-			<visible>Container.content(tvshows)</visible>
 		</control>
 		
 		<control type="radiobutton" id="19001">

@@ -167,23 +167,6 @@
 						<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 						<font>Reg22</font>
 					</control>
-                    <!--spotlight widget label for enhanced-->
-					<control type="button">
-                        <textoffsetx>0</textoffsetx>
-                        <font>Reg22</font>
-                        <textwidth>350</textwidth>
-                        <align>left</align>
-                        <width>500</width>
-                        <height>30</height>
-                        <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
-                        <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-                        <texturenofocus/>
-                        <label>[B]$LOCALIZE[31185] $LOCALIZE[31499]:[/B]</label>
-                        <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.99)]</label2>
-                        <enable>false</enable>
-                        <visible>String.IsEqual(Skin.String(HomeLayout),enhanced)</visible>
-                        <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-					</control>
 					
 					<!--widget1 label-->
 					<control type="button">
@@ -200,7 +183,7 @@
                         <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName)]</label2>
                         <enable>false</enable>
                         <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
+                        <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
 					</control>
 					
 					<!--widget2 label-->
@@ -218,7 +201,7 @@
                         <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.1)]</label2>
                         <enable>false</enable>
                         <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
+                        <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
 					</control>
 					
 					<!--widget3 label-->
@@ -236,7 +219,7 @@
                         <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.2)]</label2>
                         <enable>false</enable>
                         <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
+                        <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
 					</control>
                     <!--widget4 label-->
 					<control type="button">
@@ -253,7 +236,7 @@
                         <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.3)]</label2>
                         <enable>false</enable>
                         <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
+                        <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
 					</control>
                     <!--widget5 label-->
 					<control type="button">
@@ -270,7 +253,7 @@
                         <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.4)]</label2>
                         <enable>false</enable>
                         <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
+                        <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
                         <visible>!String.IsEmpty(Container(211).Listitem.Property(widgetName.4))</visible>
 					</control>
                     <!--widget6 label-->
@@ -288,7 +271,7 @@
                         <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.5)]</label2>
                         <enable>false</enable>
                         <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
+                        <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
                         <visible>!String.IsEmpty(Container(211).Listitem.Property(widgetName.5))</visible>
 					</control>
                     <!--widget7 label-->
@@ -306,7 +289,7 @@
                         <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.6)]</label2>
                         <enable>false</enable>
                         <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
+                        <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
                         <visible>!String.IsEmpty(Container(211).Listitem.Property(widgetName.6))</visible>
 					</control>
                     <!--widget8 label-->
@@ -324,7 +307,7 @@
                         <label2 fallback="231">$INFO[Container(211).Listitem.Property(widgetName.7)]</label2>
                         <enable>false</enable>
                         <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                        <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
+                        <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
                         <visible>!String.IsEmpty(Container(211).Listitem.Property(widgetName.7))</visible>
 					</control>
 					
@@ -334,7 +317,6 @@
 						<font>Reg26</font>
 						<scroll>false</scroll>
 						<height>20</height>
-                        <visible>!String.IsEqual(Skin.String(HomeLayout),enhanced)</visible>
 					</control>
 					<!--action label-->
 					<control type="label">
@@ -479,18 +461,17 @@
 					<label>$ADDON[script.skinshortcuts 32025]</label>
 				</control>
 				
-				<!--edit thumbnail -->
+				<!--edit thumbnail
 				<control type="button" id="4311">
 					<visible>!String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
 					<width>500</width>
 					<align>center</align>
                     <label>$ADDON[script.skinshortcuts 32026]</label>
                     <onclick>RunScript(script.skin.helper.service,action=selectimage,skinshortcutsproperty=thumb,header=$ADDON[script.skinshortcuts 32026],allowmulti=true,resourceaddon=resource.images.skinicons,skinhelperbackgrounds=true,skinstring=CustomBackgroundSetting,currentvalue=$INFO[Container(211).ListItem.Property(ThumbName)])</onclick>
-				</control>
+				</control> -->
 
 				<!--edit icon -->
 				<control type="button" id="4312">
-					<visible>String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
 					<width>500</width>
 					<align>center</align>
                     <label>31369</label>
@@ -505,7 +486,7 @@
                     <onclick>SetFocus(9000,1)</onclick>
 					<label>31564</label>
                     <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-                    <visible>!Skin.HasSetting(DisableAllWidgets) + !String.IsEqual(Skin.String(HomeLayout),3)</visible>
+                    <visible>!Skin.HasSetting(DisableAllWidgets)</visible>
 				</control>
      				<control type="button" id="4310"> <!--background-->
 					<width>500</width>
@@ -534,23 +515,13 @@
 					<onclick condition="String.IsEqual(Container(211).ListItem.Property(disableLabel), disable)">SetProperty(customValue, "")</onclick>
 					<onclick>SendClick(404)</onclick>
 					<selected>String.IsEqual(Container(211).ListItem.Property(disableLabel), disable)</selected>
-					<visible>!String.IsEqual(Window.Property(groupname),powermenu) + ![String.IsEqual(Skin.String(HomeLayout),simplever) | String.IsEqual(Skin.String(HomeLayout),verticalbig) | String.IsEqual(Skin.String(HomeLayout),simplehor)]</visible>
+					<visible>!String.IsEqual(Window.Property(groupname),powermenu)</visible>
                 </control>
 				
 				<control type="button" id="307"> <!--change action-->
 					<width>500</width>
 					<align>center</align>
 					<label>$ADDON[script.skinshortcuts 32027]</label>
-				</control>
-                
-                <!--change infoline-->
-                <control type="button" id="31687"> 
-					<width>500</width>
-					<align>center</align>
-					<label>31687</label>
-                    <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[31687],property=infoline,setting=infoline)</onclick>
-                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-					<visible>!String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
 				</control>
 
                 <control type="button" id="306"> 
@@ -597,7 +568,7 @@
 					<align>center</align>
                     <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[31773],property=customsubmenuheader,setting=customsubmenuheader)</onclick>
                     <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
-					<visible>String.IsEqual(Skin.String(HomeLayout),enhanced) | String.IsEqual(Skin.String(HomeLayout),win10) | Skin.String(SubmenuLayout, subpage)</visible>
+					<visible>Skin.String(SubmenuLayout, subpage)</visible>
                 </control>
                 
                 <!-- disable shortcut-->
@@ -656,50 +627,8 @@
                     <label2>$VAR[widgetrowslabel]</label2>
                     <textoffsetx>10</textoffsetx>
                     <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,setting=WidgetRows,header=$LOCALIZE[31750],property=multiwidget)</onclick>
-                    <visible>$EXP[IsVerticalLayout] | !String.IsEqual(Skin.String(HomeLayout),bingie) | [String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnableFixedFocusWidgets)]</visible>
+                    <visible>!Skin.HasSetting(EnableFixedFocusWidgets)</visible>
 				</control>
-                
-                <!-- square submenu -->
-				<control type="radiobutton" id="31737"> 
-					<width>500</width>
-                    <height>45</height>
-					<align>left</align>
-					<label>31737</label>
-					<font>Reg22</font>
-                    <textoffsetx>10</textoffsetx>
-                    <radiowidth>100</radiowidth>
-                    <radioheight>65</radioheight>
-                    <radioposx>415</radioposx>
-					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(squaresubmenu), enable)">SetProperty(customProperty, squaresubmenu)</onclick>
-					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(squaresubmenu), enable)">SetProperty(customValue, enable)</onclick>
-					<onclick condition="String.IsEqual(Container(211).ListItem.Property(squaresubmenu), enable)">SetProperty(customProperty, squaresubmenu)</onclick>
-					<onclick condition="String.IsEqual(Container(211).ListItem.Property(squaresubmenu), enable)">SetProperty(customValue, disable)</onclick>
-					<onclick>SendClick(404)</onclick>
-					<selected>String.IsEqual(Container(211).ListItem.Property(squaresubmenu), enable)</selected>
-					<visible>$EXP[IsVerticalLayout]</visible>
-                    <visible>!Skin.HasSetting(DisableAllSubmenus)</visible>
-                </control>
-                
-                <!-- lower widgets -->
-				<control type="radiobutton" id="31660"> 
-					<width>500</width>
-                    <height>45</height>
-					<align>left</align>
-					<label>31660</label>
-					<font>Reg22</font>
-                    <textoffsetx>10</textoffsetx>
-                    <radiowidth>100</radiowidth>
-                    <radioheight>65</radioheight>
-                    <radioposx>415</radioposx>
-					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)">SetProperty(customProperty, lowerwidgets)</onclick>
-					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)">SetProperty(customValue, enable)</onclick>
-					<onclick condition="String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)">SetProperty(customProperty, lowerwidgets)</onclick>
-					<onclick condition="String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)">SetProperty(customValue, disable)</onclick>
-					<onclick>SendClick(404)</onclick>
-					<selected>String.IsEqual(Container(211).ListItem.Property(lowerwidgets), enable)</selected>
-                    <visible>String.IsEqual(Container(211).ListItem.Property(multiwidget),single)</visible>
-					<visible>$EXP[IsVerticalLayout]</visible>
-                </control>
                 
                 <!-- WIDGET 1 -->
                 <include content="skinshortcuts-widgetselect">
@@ -759,62 +688,9 @@
                 
                 <!-- spotlight widget -->
 				<!-- [String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow)]-->
-                <control type="label" id="9040">
-					<width>500</width>
-					<align>left</align>
-                    <height>40</height>
-                    <font>Reg26</font>
-					<label>[B]$LOCALIZE[31307][/B]</label>
-                    <visible>String.IsEqual(Skin.String(HomeLayout),enhanced)</visible>
-				</control>
-                <control type="button" id="9041">
-                    <!-- select widget -->
-					<!-- [String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow)]-->
-					<width>500</width>
-                    <height>45</height>
-					<align>left</align>
-                    <textoffsetx>10</textoffsetx>
-                    <font>Reg22</font>
-					<label>$ADDON[script.skinshortcuts 32044] >></label>
-                    <onclick>SetProperty(widgetID, 99)</onclick>
-					<onclick>SendClick(312)</onclick>
-                    <visible>String.IsEqual(Skin.String(HomeLayout),enhanced)</visible>
-				</control>
-                <control type="button" id="9042">
-                    <!--widget label-->
-					<!-- [String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow)]-->
-					<width>500</width>
-                    <height>45</height>
-					<align>left</align>
-                    <font>Reg22</font>
-					<label>$ADDON[script.skinshortcuts 32025]:</label>
-                    <label2>$INFO[Container(211).ListItem.Property(widgetName.99)]</label2>
-                    <textoffsetx>10</textoffsetx>
-                    <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$ADDON[script.skinshortcuts 32025],property=widgetName.99)</onclick>
-                    <visible>!String.IsEmpty(Container(211).ListItem.Property(widget.99))</visible>
-                    <visible>String.IsEqual(Skin.String(HomeLayout),enhanced)</visible>
-				</control>
                 <!-- widget force refresh -->
 				<!-- [String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(BingieHomeDisableFirstRow)]-->
-				<control type="radiobutton" id="9043"> 
-					<width>500</width>
-					<label>31717</label>
-                    <font>Reg22</font>
-					<align>left</align>
-                    <textoffsetx>10</textoffsetx>
-                    <radiowidth>100</radiowidth>
-                    <radioheight>65</radioheight>
-                    <radioposx>415</radioposx>
-					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)">SetProperty(customProperty, widgetForceRefresh.99)</onclick>
-					<onclick condition="!String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)">SetProperty(customValue, refresh)</onclick>
-					<onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)">SetProperty(customProperty, widgetForceRefresh.99)</onclick>
-					<onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)">SetProperty(customValue, "")</onclick>
-					<onclick>SendClick(404)</onclick>
-                    <visible>!String.IsEmpty(Container(211).ListItem.Property(widget.99))</visible>
-                    <visible>String.IsEqual(Skin.String(HomeLayout),enhanced)</visible>
-					<selected>String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh.99), refresh)</selected>
-					<visible>String.IsEqual(Container(211).ListItem.Property(widget.99), Addon) | String.Contains(Container(211).ListItem.Property(widgetPath.99), favourite) | String.Contains(Container(211).ListItem.Property(widgetPath.99), xsp)</visible>
-                </control>
+
                 
                 <!-- back -->
                 <control type="label" id="9060"> 

@@ -15,7 +15,6 @@
         <include>Header</include>
         <!-- footer bar -->
 		<control type="group">
-			<visible>!Control.IsVisible(514)</visible>
 			<include condition="!Skin.HasSetting(nofooterbar)">Footer</include>
 		</control>
 		

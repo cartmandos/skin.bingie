@@ -9,8 +9,8 @@
 	<onload condition="!Skin.HasSetting(DisableAnimatedIntro) + !Skin.HasSetting(UseAltDefaultIntro)">AlarmClock(startup,ClearProperty(StartupMask,home),00:08,silent)</onload>
 	<onload condition="Skin.HasSetting(DisableAnimatedIntro) | [!Skin.HasSetting(DisableAnimatedIntro) + Skin.HasSetting(UseAltDefaultIntro)]">AlarmClock(startup,ClearProperty(StartupMask,home),00:05,silent)</onload>
 
-	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg) + !String.IsEqual(Window(Home).Property(WelcomeMsg),System.ProfileName)">Notification(,$VAR[WelcomeNotificationMsg],3000,$INFO[System.ProfileThumb])</onunload>
-	<onunload condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(DisableWelcomeMsg)">AlarmClock(welcomedone,SetProperty(WelcomeMsg, $INFO[System.ProfileName],Home),00:01,silent)</onunload>
+	<onunload condition="!Skin.HasSetting(DisableWelcomeMsg) + !String.IsEqual(Window(Home).Property(WelcomeMsg),System.ProfileName)">Notification(,$VAR[WelcomeNotificationMsg],3000,$INFO[System.ProfileThumb])</onunload>
+	<onunload condition="!Skin.HasSetting(DisableWelcomeMsg)">AlarmClock(welcomedone,SetProperty(WelcomeMsg, $INFO[System.ProfileName],Home),00:01,silent)</onunload>
 
 	<visible>!String.IsEmpty(Window(Home).Property(StartupMask))</visible>
 	<controls>

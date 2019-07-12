@@ -5,9 +5,6 @@
 	<!-- Footer -->
 	<include name="Footer">
 		<control type="group">
-			<animation type="Conditional" condition="Control.IsVisible(77551)">
-                <effect type="slide" start="0,0" end="0,800" time="400" tween="cubic" easing="inout" delay="0" />
-            </animation>
 			<animation type="Conditional" condition="Skin.HasTheme(classic) + !String.IsEqual(Skin.AspectRatio,16:10) + Window.IsMedia">
                 <effect type="slide" start="0,0" end="0,-45" time="0" tween="cubic" easing="inout" delay="0" />
             </animation>
@@ -32,7 +29,7 @@
 					<texture colordiffuse="$INFO[Skin.String(FooterPanelColor)]">dialogs/footer_classic.png</texture>
 					<visible>!Skin.HasSetting(NoFooterBar) + Skin.HasTheme(classic)</visible>
 					<visible>![Window.IsActive(Home) + Skin.HasSetting(NoFooterBarOnHome)]</visible>
-					<visible>![$EXP[IsTilesLayout] + Control.IsVisible(4444) + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]]</visible>
+					<visible>Control.IsVisible(4444) + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]]</visible>
 				</control>
 				<control type="image">
 					<posx>0</posx>
@@ -150,12 +147,12 @@
     </include>
 	
     <variable name="AdvancedRatings_PanelColor">
-        <value condition="[Window.IsMedia + [Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525)]] | [Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]">None</value>
+        <value condition="[Window.IsMedia + [Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525)]] | Window.IsActive(Home)">None</value>
         <value condition="Skin.String(FooterPanelColor) + !Skin.String(FooterPanelColor, None)">$INFO[Skin.String(FooterPanelColor)]</value>
         <value>ff000000</value>
     </variable>
     <variable name="AdvancedRatings_TextColor">
-        <value condition="[Window.IsMedia + [Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525)]] | [Window.IsActive(Home) + String.IsEqual(Skin.String(HomeLayout),bingie)]">$INFO[Skin.String(ViewDetailsTextColor)]</value>
+        <value condition="[Window.IsMedia + [Control.IsVisible(523) | Control.IsVisible(526) | Control.IsVisible(525)]] | Window.IsActive(Home)">$INFO[Skin.String(ViewDetailsTextColor)]</value>
         <value condition="Skin.String(FooterTextColor) + !Skin.String(FooterPanelColor, None)">$INFO[Skin.String(FooterTextColor)]</value>
         <value>ffffffff</value>
     </variable>
@@ -886,7 +883,7 @@
             <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
             <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
             <visible>!Skin.HasTheme(classic) + ![Control.IsVisible(99123) + !Skin.HasSetting(HideBatteryStatus)]</visible>
-            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | String.IsEqual(Skin.String(HomeLayout),simplehor)</visible>
+            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]]</visible>
             <visible>!Window.IsVisible(shutdownmenu) + [String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]</visible>
             <animation effect="slide" start="0,0" end="-15,-2" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
             <animation effect="slide" start="0" end="400" time="0" condition="Control.IsVisible(99123)">Conditional</animation>
@@ -905,7 +902,7 @@
             <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
             <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
             <visible>Control.IsVisible(99123) + !Skin.HasSetting(HideBatteryStatus)</visible>
-            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | String.IsEqual(Skin.String(HomeLayout),simplehor)</visible>
+            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]]</visible>
             <visible>!Window.IsVisible(shutdownmenu) + [String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]</visible>
             <animation effect="slide" start="0,0" end="-15,-2" time="0" condition="Skin.HasTheme(classic)">Conditional</animation>
         </control>
@@ -923,7 +920,7 @@
             <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
             <visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
             <visible>Skin.HasTheme(classic) + !Control.IsVisible(99123)</visible>
-            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | String.IsEqual(Skin.String(HomeLayout),simplehor)</visible>
+            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]]</visible>
             <visible>[String.IsEmpty(Container(900).ListItem.Property(infoline)) | String.IsEqual(Container(900).ListItem.Property(infoline),none)]</visible>
         </control>
             
@@ -940,7 +937,7 @@
             <textcolor>$INFO[Skin.String(FooterTextColor)]</textcolor>
             <shadowcolor>$INFO[Skin.String(FooterTextShadowColor)]</shadowcolor>
             <visible>![Window.IsVisible(shutdownmenu) + !Skin.HasTheme(classic)]</visible>
-            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]] | String.IsEqual(Skin.String(HomeLayout),simplehor)</visible>
+            <visible>![[Control.IsVisible(4444) + Integer.IsGreater(Container(4444).NumItems,0)] + [Skin.String(SubmenuLayout, horizontal) | Skin.String(SubmenuLayout, tiles)]]</visible>
         </control>        
         
     </include>

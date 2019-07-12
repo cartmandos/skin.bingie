@@ -4,7 +4,7 @@
     <menucontrol>900</menucontrol>
     <defaultcontrol always="true">9000</defaultcontrol>
     <backgroundcolor>$VAR[BingiePanelColor]</backgroundcolor>
-    <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">CustomBingieWinProps</include>
+    <include>CustomBingieWinProps</include>
     <onload>SetProperty(CustomSearch,1,home)</onload>
     <onunload>ClearProperty(SuggestionPath)</onunload>
     <include>BingieViews_WindowOpen_Fade</include>
@@ -36,7 +36,7 @@
             <include>SearchSuggestionsAnim</include>
             <visible>!$EXP[IsActualKeyboardActive]</visible>
             <top>65</top>
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
             <left>65</left>
             <height>500</height>
             <orientation>vertical</orientation>
@@ -99,7 +99,7 @@
 
         <!-- Auto-Complete & Static Suggestions List -->
         <include content="Search_Suggestions_Container">
-            <include condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
+            <include condition="!Skin.HasSetting(EnhancedHome_Circular)">No_Circular_Left</include>
             <include>SearchSuggestionsAnim</include>
             <param name="id" value="1007" />
             <param name="top" value="590" />
@@ -358,6 +358,6 @@
             <param name="size" value="100"/>
         </include>
         <!-- Main Menu -->
-        <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieSideBladeMainMenu</include>
+        <include>BingieSideBladeMainMenu</include>
 	</controls>
 </window>

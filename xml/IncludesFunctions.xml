@@ -1,32 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- BINGIE -->
 <includes>
-    <include name="HiddenHomeMenuButtonEnhancedHome">
-        <control type="button">
-            <visible>false</visible>
-            <onfocus condition="!String.IsEmpty(Container(900).ListItem.Property(widgetPath.99))">SetProperty(SkinHelper.WidgetContainer,1508)</onfocus>
-            <onfocus condition="String.IsEmpty(Container(900).ListItem.Property(widgetPath.99)) + !String.IsEmpty(Container(900).ListItem.Property(widgetPath))">$VAR[SetWidgetContainer]</onfocus>
-            <onfocus condition="String.IsEmpty(Container(900).ListItem.property(widgetPath)) + String.IsEmpty(Container(900).ListItem.property(widgetPath.99))">ClearProperty(SkinHelper.WidgetContainer)</onfocus>
-            <include content="WidgetProperties">
-                <param name="widgetid" value="999" />
-            </include>
-            <onunfocus>ClearProperty(SkinHelper.WidgetContainer)</onunfocus>
-        </control>
-    </include>
-
     <include name="HiddenHomeMenuButton">
         <control type="button">
             <visible>false</visible>
-            <onfocus condition="String.IsEqual(Skin.String(HomeLayout),win10) | String.IsEqual(Skin.String(HomeLayout),bingie)">SetProperty(ShowViewSubMenu,show,Home)</onfocus>
-            <onfocus condition="!String.IsEmpty(Container(900).ListItem.Property(widgetPath)) + !Skin.HasSetting(DisableAllWidgets) + [!String.IsEqual(Skin.String(HomeLayout),bingie) | Skin.HasSetting(UseSectionBackground)]">$VAR[SetWidgetContainer]</onfocus>
-            <onfocus condition="!String.IsEmpty(Window.Property(SkinHelper.WidgetContainer)) + String.IsEmpty(Container(900).ListItem.property(widgetPath)) + [!String.IsEqual(Skin.String(HomeLayout),bingie) | Skin.HasSetting(UseSectionBackground)]">ClearProperty(SkinHelper.WidgetContainer)</onfocus>
+            <onfocus>SetProperty(ShowViewSubMenu,show,Home)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window.Property(SkinHelper.WidgetContainer)) + String.IsEmpty(Container(900).ListItem.property(widgetPath)) + Skin.HasSetting(UseSectionBackground)">ClearProperty(SkinHelper.WidgetContainer)</onfocus>
             <onfocus condition="!Skin.HasSetting(DisableAllSubmenus)">SetProperty(submenupos,$INFO[Container(900).Position],Home)</onfocus>
-            <onfocus condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4445).NumItems,0) + !Control.IsVisible(4446)">SetProperty(submenu,show,Home)</onfocus>
-            <onfocus condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4445).NumItems,0) + !Control.IsVisible(4446) + Skin.String(SubmenuLayout, vertical)">SetFocus(4444,0)</onfocus>
-            <onfocus condition="!Skin.HasSetting(AutoShowSubmenu) | Control.IsVisible(4446) | !Integer.IsGreater(Container(4445).NumItems,0)">ClearProperty(submenu,Home)</onfocus>
-            <onfocus condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
+            <onfocus condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4445).NumItems,0)">SetProperty(submenu,show,Home)</onfocus>
+            <onfocus condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4445).NumItems,0) + Skin.String(SubmenuLayout, vertical)">SetFocus(4444,0)</onfocus>
+            <onfocus condition="!Skin.HasSetting(AutoShowSubmenu) | !Integer.IsGreater(Container(4445).NumItems,0)">ClearProperty(submenu,Home)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
             <!--<onfocus>SetProperty(widgetstyle, $INFO[Skin.String(widgetstyle)])</onfocus>-->
-            <onfocus condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | Skin.HasSetting(UseSectionBackground)">SetProperty(flushWidgetProps,1,Home)</onfocus>
+            <onfocus condition="Skin.HasSetting(UseSectionBackground)">SetProperty(flushWidgetProps,1,Home)</onfocus>
         </control>
     </include>
 
@@ -40,7 +26,7 @@
                     <param name="widgetid" value="$PARAM[widgetid]" />
                     <param name="widgetstyle" value="$PARAM[widgetstyle]" />
                 </include>
-                <include content="Bingie_$PARAM[widget]_AutoPreview" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + [Skin.HasSetting(BingieAutoTrailer) | Skin.HasSetting(SpotLightTrailers) | Skin.HasSetting(PVRPreview)]">
+                <include content="Bingie_$PARAM[widget]_AutoPreview" condition="[Skin.HasSetting(BingieAutoTrailer) | Skin.HasSetting(SpotLightTrailers) | Skin.HasSetting(PVRPreview)]">
                     <param name="widgetid" value="$PARAM[widgetid]" />
                     <param name="groupid" value="$PARAM[groupid]" />
                 </include>
@@ -180,74 +166,6 @@
         <onfocus condition="String.IsEmpty(Window(Home).Property(ListItem.Art.fanart))">SetProperty(ListItem.Art.fanart, $ESCINFO[Control.GetLabel(99004)],Home)</onfocus>
         <onfocus condition="String.IsEmpty(Window(Home).Property(ListItem.Plot))">SetProperty(ListItem.Plot, $ESCINFO[Control.GetLabel(90009)],Home)</onfocus>
     </include>
-
-    <variable name="SetWidgetContainer">
-        <value condition="Control.IsVisible(1510)">SetProperty(SkinHelper.WidgetContainer,1510)</value>
-        <value condition="Control.IsVisible(1520)">SetProperty(SkinHelper.WidgetContainer,1520)</value>
-        <value condition="Control.IsVisible(1530)">SetProperty(SkinHelper.WidgetContainer,1530)</value>
-        <value condition="Control.IsVisible(1540)">SetProperty(SkinHelper.WidgetContainer,1540)</value>
-        <value condition="Control.IsVisible(1550)">SetProperty(SkinHelper.WidgetContainer,1550)</value>
-        <value condition="Control.IsVisible(1560)">SetProperty(SkinHelper.WidgetContainer,1560)</value>
-        <value condition="Control.IsVisible(1570)">SetProperty(SkinHelper.WidgetContainer,1570)</value>
-        <value condition="Control.IsVisible(1580)">SetProperty(SkinHelper.WidgetContainer,1580)</value>
-        <value condition="Control.IsVisible(2510)">SetProperty(SkinHelper.WidgetContainer,2510)</value>
-        <value condition="Control.IsVisible(2520)">SetProperty(SkinHelper.WidgetContainer,2520)</value>
-        <value condition="Control.IsVisible(2530)">SetProperty(SkinHelper.WidgetContainer,2530)</value>
-        <value condition="Control.IsVisible(2540)">SetProperty(SkinHelper.WidgetContainer,2540)</value>
-        <value condition="Control.IsVisible(2550)">SetProperty(SkinHelper.WidgetContainer,2550)</value>
-        <value condition="Control.IsVisible(2560)">SetProperty(SkinHelper.WidgetContainer,2560)</value>
-        <value condition="Control.IsVisible(2570)">SetProperty(SkinHelper.WidgetContainer,2570)</value>
-        <value condition="Control.IsVisible(2580)">SetProperty(SkinHelper.WidgetContainer,2580)</value>
-        <value condition="Control.IsVisible(3510)">SetProperty(SkinHelper.WidgetContainer,3510)</value>
-        <value condition="Control.IsVisible(3520)">SetProperty(SkinHelper.WidgetContainer,3520)</value>
-        <value condition="Control.IsVisible(3530)">SetProperty(SkinHelper.WidgetContainer,3530)</value>
-        <value condition="Control.IsVisible(3540)">SetProperty(SkinHelper.WidgetContainer,3540)</value>
-        <value condition="Control.IsVisible(3550)">SetProperty(SkinHelper.WidgetContainer,3550)</value>
-        <value condition="Control.IsVisible(3560)">SetProperty(SkinHelper.WidgetContainer,3560)</value>
-        <value condition="Control.IsVisible(3570)">SetProperty(SkinHelper.WidgetContainer,3570)</value>
-        <value condition="Control.IsVisible(3580)">SetProperty(SkinHelper.WidgetContainer,3580)</value>
-        <value condition="Control.IsVisible(4510)">SetProperty(SkinHelper.WidgetContainer,4510)</value>
-        <value condition="Control.IsVisible(4520)">SetProperty(SkinHelper.WidgetContainer,4520)</value>
-        <value condition="Control.IsVisible(4530)">SetProperty(SkinHelper.WidgetContainer,4530)</value>
-        <value condition="Control.IsVisible(4540)">SetProperty(SkinHelper.WidgetContainer,4540)</value>
-        <value condition="Control.IsVisible(4550)">SetProperty(SkinHelper.WidgetContainer,4550)</value>
-        <value condition="Control.IsVisible(4560)">SetProperty(SkinHelper.WidgetContainer,4560)</value>
-        <value condition="Control.IsVisible(4570)">SetProperty(SkinHelper.WidgetContainer,4570)</value>
-        <value condition="Control.IsVisible(4580)">SetProperty(SkinHelper.WidgetContainer,4580)</value>
-        <value condition="Control.IsVisible(5510)">SetProperty(SkinHelper.WidgetContainer,5510)</value>
-        <value condition="Control.IsVisible(5520)">SetProperty(SkinHelper.WidgetContainer,5520)</value>
-        <value condition="Control.IsVisible(5530)">SetProperty(SkinHelper.WidgetContainer,5530)</value>
-        <value condition="Control.IsVisible(5540)">SetProperty(SkinHelper.WidgetContainer,5540)</value>
-        <value condition="Control.IsVisible(5550)">SetProperty(SkinHelper.WidgetContainer,5550)</value>
-        <value condition="Control.IsVisible(5560)">SetProperty(SkinHelper.WidgetContainer,5560)</value>
-        <value condition="Control.IsVisible(5570)">SetProperty(SkinHelper.WidgetContainer,5570)</value>
-        <value condition="Control.IsVisible(5580)">SetProperty(SkinHelper.WidgetContainer,5580)</value>
-        <value condition="Control.IsVisible(6510)">SetProperty(SkinHelper.WidgetContainer,6510)</value>
-        <value condition="Control.IsVisible(6520)">SetProperty(SkinHelper.WidgetContainer,6520)</value>
-        <value condition="Control.IsVisible(6530)">SetProperty(SkinHelper.WidgetContainer,6530)</value>
-        <value condition="Control.IsVisible(6540)">SetProperty(SkinHelper.WidgetContainer,6540)</value>
-        <value condition="Control.IsVisible(6550)">SetProperty(SkinHelper.WidgetContainer,6550)</value>
-        <value condition="Control.IsVisible(6560)">SetProperty(SkinHelper.WidgetContainer,6560)</value>
-        <value condition="Control.IsVisible(6570)">SetProperty(SkinHelper.WidgetContainer,6570)</value>
-        <value condition="Control.IsVisible(6580)">SetProperty(SkinHelper.WidgetContainer,6580)</value>
-        <value condition="Control.IsVisible(6510)">SetProperty(SkinHelper.WidgetContainer,6510)</value>
-        <value condition="Control.IsVisible(6520)">SetProperty(SkinHelper.WidgetContainer,6520)</value>
-        <value condition="Control.IsVisible(6530)">SetProperty(SkinHelper.WidgetContainer,6530)</value>
-        <value condition="Control.IsVisible(6540)">SetProperty(SkinHelper.WidgetContainer,6540)</value>
-        <value condition="Control.IsVisible(6550)">SetProperty(SkinHelper.WidgetContainer,6550)</value>
-        <value condition="Control.IsVisible(6560)">SetProperty(SkinHelper.WidgetContainer,6560)</value>
-        <value condition="Control.IsVisible(6570)">SetProperty(SkinHelper.WidgetContainer,6570)</value>
-        <value condition="Control.IsVisible(6580)">SetProperty(SkinHelper.WidgetContainer,6580)</value>
-        <value condition="Control.IsVisible(8510)">SetProperty(SkinHelper.WidgetContainer,8510)</value>
-        <value condition="Control.IsVisible(8520)">SetProperty(SkinHelper.WidgetContainer,8520)</value>
-        <value condition="Control.IsVisible(8530)">SetProperty(SkinHelper.WidgetContainer,8530)</value>
-        <value condition="Control.IsVisible(8540)">SetProperty(SkinHelper.WidgetContainer,8540)</value>
-        <value condition="Control.IsVisible(8550)">SetProperty(SkinHelper.WidgetContainer,8550)</value>
-        <value condition="Control.IsVisible(8560)">SetProperty(SkinHelper.WidgetContainer,8560)</value>
-        <value condition="Control.IsVisible(8570)">SetProperty(SkinHelper.WidgetContainer,8570)</value>
-        <value condition="Control.IsVisible(8580)">SetProperty(SkinHelper.WidgetContainer,8580)</value>
-        <value>RunScript(script.skin.helper.service,ACTION=SETWIDGETCONTAINER,CONTROLS=$INFO[Container(900).ListItem.Property(id)]510-$INFO[Container(900).ListItem.Property(id)]520-$INFO[Container(900).ListItem.Property(id)]530-$INFO[Container(900).ListItem.Property(id)]540-$INFO[Container(900).ListItem.Property(id)]550-$INFO[Container(900).ListItem.Property(id)]560-$INFO[Container(900).ListItem.Property(id)]570-$INFO[Container(900).ListItem.Property(id)]580)</value>
-    </variable>
 
     <include name="WidgetPlaybackFocus">
         <onload condition="!String.IsEmpty(Window(Home).Property(LastFocusWidget))">RunScript(script.skin.helper.service,action=setfocus,control=$INFO[Window(Home).Property(LastFocusWidget)],relativeposition=$INFO[Window(Home).Property(LastFocusWidgetPos)],fallback=300)</onload>
