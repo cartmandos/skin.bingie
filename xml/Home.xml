@@ -25,7 +25,6 @@
     <onunload>ClearProperty(submenu,Home)</onunload>
     <onunload>ClearProperty(ShowWidget,Home)</onunload>
     <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
-    <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
 
     <include>BingieViews_WindowOpen_Fade</include>
 

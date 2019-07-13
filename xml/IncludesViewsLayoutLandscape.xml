@@ -87,9 +87,8 @@
     <variable name="ClearLogoFallback">
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-        <value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + String.StartsWith(ListItem.FileNameAndPath, pvr://) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + !String.IsEmpty(ListItem.Art(thumb)) + String.IsEqual(ListItem.Art(thumb),ListItem.Property(channellogo))">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="Skin.HasSetting(SkinHelper.EnablePVRThumbs) + String.StartsWith(ListItem.FileNameAndPath, pvr://)">http://localhost:52307/getthumb&amp;title=$ESCINFO[ListItem.Title]</value>
+        <value condition="String.StartsWith(ListItem.FileNameAndPath, pvr://) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb)) + String.IsEqual(ListItem.Art(thumb),ListItem.Property(channellogo))">$INFO[ListItem.Art(thumb)]</value>
     </variable>
     
     <!-- LANDSCAPE LAYOUT -->

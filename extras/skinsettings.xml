@@ -10,7 +10,7 @@
 
     <!-- widget style -->
     <setting id="widgetstyle" value="poster" label="$LOCALIZE[31053]" condition="" icon="special://skin/extras/viewthumbs/widget_hor_poster.jpg" description=""/>
-    <setting id="widgetstyle" value="landscape" label="$LOCALIZE[31056]" condition="" icon="special://skin/extras/viewthumbs/widget_hor_landscape.jpg" description=""/>
+    <setting id="widgetstyle" value="landscape" label="$LOCALIZE[31056]" condition="" icon="special://skin/extras/viewthumbs/widget_hor_landscape.jpg" description="" default="true"/>
     <setting id="widgetstyle" value="landscapesmall" label="$LOCALIZE[31932]" condition="" icon="special://skin/extras/viewthumbs/widget_hor_landscapesmall.jpg" description=""/>
     <setting id="widgetstyle" value="singlebox" label="$LOCALIZE[31933]" condition="" icon="special://skin/extras/viewthumbs/widget_hor_singlebox.jpg" description=""/>
     <setting id="widgetstyle" value="square" label="$LOCALIZE[31934]" condition="" icon="special://skin/extras/viewthumbs/widget_hor_square.jpg" description=""/>
@@ -156,14 +156,14 @@
     <setting id="ThumbsDownMax" value="1" label="1" condition="" icon="" description=""/>
 
     <!-- Random fanart delay -->
-    <setting id="SkinHelper.RandomFanartDelay" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description=""/>
-    <setting id="SkinHelper.RandomFanartDelay" value="10" label="10 $LOCALIZE[31231]" condition="" icon="" description=""/>
-    <setting id="SkinHelper.RandomFanartDelay" value="15" label="15 $LOCALIZE[31231]" condition="" icon="" description=""/>
-    <setting id="SkinHelper.RandomFanartDelay" value="20" label="20 $LOCALIZE[31231]" condition="" icon="" description=""/>
-    <setting id="SkinHelper.RandomFanartDelay" value="30" label="30 $LOCALIZE[31231]" condition="" icon="" description="" default="true"/>
-    <setting id="SkinHelper.RandomFanartDelay" value="40" label="40 $LOCALIZE[31231]" condition="" icon="" description=""/>
-    <setting id="SkinHelper.RandomFanartDelay" value="50" label="50 $LOCALIZE[31231]" condition="" icon="" description=""/>
-    <setting id="SkinHelper.RandomFanartDelay" value="60" label="60 $LOCALIZE[31231]" condition="" icon="" description=""/>
+    <setting id="RandomFanartDelay" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description=""/>
+    <setting id="RandomFanartDelay" value="10" label="10 $LOCALIZE[31231]" condition="" icon="" description=""/>
+    <setting id="RandomFanartDelay" value="15" label="15 $LOCALIZE[31231]" condition="" icon="" description=""/>
+    <setting id="RandomFanartDelay" value="20" label="20 $LOCALIZE[31231]" condition="" icon="" description=""/>
+    <setting id="RandomFanartDelay" value="30" label="30 $LOCALIZE[31231]" condition="" icon="" description="" default="true"/>
+    <setting id="RandomFanartDelay" value="40" label="40 $LOCALIZE[31231]" condition="" icon="" description=""/>
+    <setting id="RandomFanartDelay" value="50" label="50 $LOCALIZE[31231]" condition="" icon="" description=""/>
+    <setting id="RandomFanartDelay" value="60" label="60 $LOCALIZE[31231]" condition="" icon="" description=""/>
 
     <!-- Extra fanart delay -->
     <setting id="extrafanartdelay" value="5" label="5 $LOCALIZE[31231]" condition="" icon="" description=""/>

@@ -100,7 +100,7 @@
         <value condition="Window.IsActive(DialogVideoInfo.xml)">$INFO[ListItem.TagLine]</value>
         <value condition="Window.IsActive(loginscreen)">$INFO[Control.GetLabel(2)]</value>
         <value condition="Skin.String(infoline) + !Skin.String(infoline,auto)">$VAR[infolinevar]</value>
-        <value condition="String.IsEqual(Container.FolderPath,videodb://movies/titles/) + Container.HasFolders">$LOCALIZE[20342]: $INFO[Window(Home).Property(Movies.Count)] • $LOCALIZE[16101]: $INFO[Window(Home).Property(Movies.UnWatched)] • $LOCALIZE[20434]: $INFO[Window(Home).Property(SkinHelper.TotalMovieSets)] ($INFO[Window(Home).Property(SkinHelper.TotalMoviesInSets)] $LOCALIZE[20342])</value>
+        <value condition="String.IsEqual(Container.FolderPath,videodb://movies/titles/) + Container.HasFolders">$LOCALIZE[20342]: $INFO[Window(Home).Property(Movies.Count)] • $LOCALIZE[16101]: $INFO[Window(Home).Property(Movies.UnWatched)]</value>
         <value condition="String.IsEqual(Container.FolderPath,videodb://movies/titles/)">$LOCALIZE[20342]: $INFO[Window(Home).Property(Movies.Count)] • $LOCALIZE[16102]: $INFO[Window(Home).Property(Movies.Watched)] • $LOCALIZE[16101]: $INFO[Window(Home).Property(Movies.UnWatched)] • $INFO[Control.GetLabel(3)]</value>
         
         <value condition="String.IsEqual(Container.FolderPath,videodb://tvshows/titles/)">$LOCALIZE[20343]: $INFO[Window(Home).Property(TVShows.Count)] • $LOCALIZE[20360]: $INFO[Window(Home).Property(Episodes.Count)] • $LOCALIZE[16101]: $INFO[Window(Home).Property(Episodes.UnWatched)] • $INFO[Control.GetLabel(3)]</value>
@@ -112,8 +112,6 @@
 		<value condition="[Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvchannels) | Window.IsActive(tvguide) | Window.IsActive(mypvr.xml)] + !String.IsEmpty(Pvr.NowRecordingTitle)">$INFO[Pvr.NowRecordingTitle,$LOCALIZE[19158]: ] ($INFO[Pvr.NowRecordingChannel])</value>
 		<value condition="[Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvguide) | Window.IsActive(mypvr.xml)] + !String.IsEmpty(Pvr.NextRecordingTitle)">$INFO[Pvr.NextRecordingTitle,$LOCALIZE[19025]: ] ($INFO[Pvr.NextRecordingDateTime])</value>
 		<value condition="[Window.IsActive(tvrecordings) | Window.IsActive(tvtimers)] + !String.IsEmpty(PVR.backenddiskspace) + Skin.HasSetting(EnableTouchSupport)">$INFO[Pvr.backenddiskspace]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ContentHeader)) + !String.IsEqual(Container.TotalUnwatched,0)">$INFO[Window(Home).Property(SkinHelper.ContentHeader)]$INFO[Container.TotalUnwatched, • , $LOCALIZE[16101]] $INFO[Control.GetLabel(3),• ]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ContentHeader))">$INFO[Window(Home).Property(SkinHelper.ContentHeader)] $INFO[Control.GetLabel(3),• ]</value>
         <value condition="Window.IsActive(DialogVideoInfo.xml) + !String.IsEmpty(ListItem.Season)">$LOCALIZE[20373] $INFO[ListItem.Season] $LOCALIZE[20452] $INFO[ListItem.Episode]: $INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(DialogVideoInfo.xml)">$INFO[ListItem.TagLine]</value>
 		<value condition="!String.IsEmpty(Container.NumItems) + ![Window.IsActive(tvchannels) | Window.IsActive(radiochannels)] + !String.IsEqual(Container.TotalUnwatched,0)">$INFO[Container.NumItems,, $LOCALIZE[31034]]$INFO[Container.TotalUnwatched, • , $LOCALIZE[16101]] $INFO[Control.GetLabel(3),• ]</value>
@@ -186,7 +184,6 @@
         <!-- Premiere -->
     </variable>
     <variable name="value_ground1_value">
-		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Country)]</value>
         <value condition="Container.Content(movies) | Window.IsVisible(VideoPlaylist) | Container.Content(musicvideos)">$INFO[ListItem.Country]</value>
         <value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">$INFO[ListItem.Premiered]</value>
     </variable>
@@ -198,7 +195,7 @@
         <!-- Regie -->
     </variable>
     <variable name="value_ground2_value">
-	<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
+	<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[ListItem.Genre]</value>
         <value condition="Container.Content(movies) | Window.IsVisible(VideoPlaylist) | Container.Content(musicvideos) | Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.Genre]</value>
         <value condition="Container.Content(episodes)">$INFO[ListItem.Director]</value>
     </variable>
@@ -221,7 +218,7 @@
         <!-- Duration -->
     </variable>
     <variable name="value_ground4_value">
-		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Director)]</value>
+		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[ListItem.Director]</value>
         <value condition="Container.Content(movies) | Window.IsVisible(VideoPlaylist) | Container.Content(musicvideos)">$INFO[ListItem.Director]</value>
         <value condition="Container.Content(tvshows)">$INFO[ListItem.Property(TotalEpisodes)] ($LOCALIZE[16101]: $INFO[ListItem.Property(UnwatchedEpisodes)])</value>
         <value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Duration)">$VAR[ListItemDuration]</value>
@@ -246,11 +243,6 @@
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.fanart))">$INFO[Container.ListItem.Art(tvshow.fanart)]</value>
         <value condition="String.IsEqual(ListItem.Label,..)">dialogs/filebrowser/DefaultFolderBack2.png</value>
 		<value condition="Window.IsActive(tvrecordings) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="!Skin.HasSetting(DisableLandscapeThumbs) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Landscape)) + ![Control.IsVisible(512)]">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb)) + !String.IsEqual(Window(Home).Property(SkinHelper.ListItem.Art.Thumb),Window(Home).Property(SkinHelper.ListItem.Art.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
-        <value condition="ListItem.IsCollection + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.0.Landscape))">$INFO[Window(Home).Property(SkinHelper.ListItem.0.Landscape)]</value>
-        <value condition="ListItem.IsCollection + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.0.Fanart))">$INFO[Window(Home).Property(SkinHelper.ListItem.0.Fanart)]</value>
 		<value condition="String.StartsWith(Container.FolderPath,pvr://)">resource://resource.images.skinbackgrounds.titanium/hover_my tv.jpg</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="Container.Content(artists)">resource://resource.images.skinicons.wide/artist.png</value>
@@ -265,7 +257,6 @@
 
 	<variable name="VideoInfoPosterImage">
 		<value condition="[Container.Content(episodes) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.Property(DBTYPE),episode)] + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
-        <value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster)]</value>
 		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(TVShowThumb))">$INFO[ListItem.Property(TVShowThumb)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
@@ -350,22 +341,13 @@
         <!-- use pvr provided thumb at episode level in pvr recordings -->
         <value condition="String.StartsWith(Container.FolderPath,pvr://recordings/active/) + !String.IsEqual(Container.FolderPath,pvr://recordings/active/) + !String.IsEmpty(ListItem.Art(thumb)) + !String.Contains(Pvr.BackendName, headend)">$INFO[ListItem.Art(thumb)]</value>
         <!-- use rich artwork at main level -->
-        <value condition="Control.IsVisible(10) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Landscape))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
-        <value condition="Control.IsVisible(10) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Poster)) + !Window.IsActive(tvguide) + !Control.IsVisible(10)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
         <value>resource://resource.images.skinbackgrounds.titanium/pvr.jpg</value>
     </variable>
     
     <variable name="PVRInfoThumb">
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearArt))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearArt)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Landscape))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
+
     </variable>
 	
 	<variable name="ListItemDuration">
@@ -395,7 +377,6 @@
 		<value condition="Container.Content(Artists) + !String.IsEmpty(ListItem.Property(artist_genre))">$INFO[ListItem.Property(artist_genre),$LOCALIZE[515]: ]</value>
 		<value condition="Container.Content(Artists) + !String.IsEmpty(ListItem.Property(artist_style))">$INFO[ListItem.Property(artist_style),$LOCALIZE[176]: ]</value>
 		<value condition="Container.Content(MusicVideos) + [!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(ListItem.Year)]">$INFO[ListItem.Year,, • ]$VAR[ListItemDuration]</value>
-		<value condition="String.StartsWith(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Year),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
 		<value condition="Container.Content(Movies) + [!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.Genre)]">$INFO[ListItem.Year,, • ]$VAR[ListItemDuration]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,, • ]$INFO[ListItem.MPAA,, • ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360] • ] $INFO[ListItem.Property(UnWatchedEpisodes), (,) ]</value>
 		<value condition="!Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,, • ]$INFO[ListItem.MPAA,, • ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360] • ]</value>
@@ -517,7 +498,6 @@
 		<value condition="Container.Content(Artists) + !String.IsEmpty(ListItem.Property(artist_genre))">$INFO[ListItem.Property(artist_genre),$LOCALIZE[515]: ]</value>
 		<value condition="Container.Content(Artists) + !String.IsEmpty(ListItem.Property(artist_style))">$INFO[ListItem.Property(artist_style),$LOCALIZE[176]: ]</value>
 		<value condition="Container.Content(MusicVideos) + [!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(ListItem.Year)]">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration]</value>
-		<value condition="String.Contains(ListItem.Path,videodb://movies/sets/)">$INFO[Window(Home).Property(SkinHelper.ListItem.Year),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
 		<value condition="Container.Content(Movies) + [!String.IsEmpty(ListItem.Duration) | !String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.Genre)]">$INFO[ListItem.Year,, • ]$VAR[ListItemDuration]$INFO[ListItem.Genre, • ]</value>	 <!-- FIXED, but interesting is , if !String.IsEmpty(ListItem.Duration) its strange result in label (director etc) -->
 		<value condition="Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,, • ]$INFO[ListItem.MPAA,, • ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ] $INFO[ListItem.Property(UnWatchedEpisodes), (,) ]</value>
 		<value condition="!Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) + [Container.Content(Seasons) | Container.Content(TVShows)] + [!String.IsEmpty(ListItem.Year) | !String.IsEmpty(ListItem.MPAA) | !String.IsEmpty(ListItem.Property(TotalEpisodes))]">$INFO[ListItem.Year,, • ]$INFO[ListItem.MPAA,, • ]$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360]: ]</value>
@@ -539,12 +519,10 @@
     
     <variable name="PVRChannelName">
         <value condition="!String.IsEmpty(ListItem.ChannelName)">$INFO[ListItem.ChannelName]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelName))">$INFO[Window(Home).property(SkinHelper.ListItem.ChannelName)]</value>
     </variable>
     
     <variable name="PVRGenre">
         <value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">$INFO[Window(Home).property(SkinHelper.ListItem.Genre)]</value>
     </variable>
   
   <variable name="Plots">
@@ -564,8 +542,6 @@
 	<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
     <value condition="!String.IsEmpty(ListItem.Property(Plot))">$INFO[ListItem.Property(Plot)]</value>
 	<value condition="!String.IsEmpty(ListItem.Comment)">$INFO[ListItem.Comment]</value>
-    <value condition="!String.IsEmpty(Window(Home).property(SkinHelper.ListItem.ExtendedPlot))">$INFO[Window(Home).property(SkinHelper.ListItem.ExtendedPlot)]</value>
-    <value condition="!String.IsEmpty(Window(Home).property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).property(SkinHelper.ListItem.Plot)]</value>
   </variable>
   
     <variable name="ProfileLabel">
@@ -600,8 +576,6 @@
 	<value condition="!String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
 	<value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
 	<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
-    <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.ClearArt))">$INFO[Window(Home).Property(SkinHelper.Player.Art.ClearArt)]</value>
-	<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.ClearLogo))">$INFO[Window(Home).Property(SkinHelper.Player.Art.ClearLogo)]</value>
    </variable>
    
    <variable name="VideoPlayerPoster">
@@ -635,41 +609,28 @@
      <variable name="AudioPlayerCoverImage">
         <value condition="String.EndsWith(MusicPlayer.Cover,.tbn)">$INFO[MusicPlayer.Cover]</value>
         <value condition="!String.IsEmpty(MusicPlayer.Cover) + !String.StartsWith(MusicPlayer.Cover,Default) + Player.HasDuration">$INFO[MusicPlayer.Cover]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.AlbumThumb))">$INFO[Window(Home).Property(SkinHelper.Player.Art.AlbumThumb)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Thumb))">$INFO[Window(Home).Property(SkinHelper.Player.Art.Thumb)]</value>
         <value>$INFO[MusicPlayer.Cover]</value>
 	 </variable>
      
      <variable name="MusicCoverImage">
         <value condition="!String.IsEmpty(ListItem.Art(thumb)) + !String.StartsWith(ListItem.Art(thumb),Default)">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
         <value>$INFO[ListItem.Icon]</value>
 	 </variable>
 	 
 	 <variable name="DiscArtImage">
         <value condition="!String.IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.DiscArt))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.DiscArt)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.0.DiscArt))">$INFO[Window(Home).Property(SkinHelper.ListItem.0.DiscArt)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.1.DiscArt))">$INFO[Window(Home).Property(SkinHelper.ListItem.1.DiscArt)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.2.DiscArt))">$INFO[Window(Home).Property(SkinHelper.ListItem.2.DiscArt)]</value>
-		<value condition="!String.IsEmpty(ListItem.Art(landscape)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[ListItem.Art(landscape)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Landscape)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Landscape)]</value>
+         <value condition="!String.IsEmpty(ListItem.Art(landscape)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[ListItem.Art(landscape)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(fanart)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[ListItem.Art(poster)]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
-		<value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
-	 </variable>
+     </variable>
      
      <variable name="PlayerDiscArtImage">
         <value condition="!String.IsEmpty(Player.Art(discart))">$INFO[Player.Art(discart)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.DiscArt))">$INFO[Window(Home).Property(SkinHelper.Player.Art.DiscArt)]</value>
 		<value condition="!String.IsEmpty(Player.Art(landscape)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[Player.Art(landscape)]</value>
 		<value condition="!String.IsEmpty(Player.Art(fanart)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[Player.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Player.Art(poster)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[Player.Art(poster)]</value>
 		<value condition="!String.IsEmpty(Player.Art(tvshow.poster)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[Player.Art(tvshow.poster)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.FanArt)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[Window(Home).Property(SkinHelper.Player.Art.FanArt)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Thumb)) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[Window(Home).Property(SkinHelper.Player.Art.Thumb)]</value>
-		<value condition="!String.IsEmpty(ListItem.Art(poster)) + !String.Contains(ListItem.Art(poster),Default) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[ListItem.Art(poster)]</value>
+         <value condition="!String.IsEmpty(ListItem.Art(poster)) + !String.Contains(ListItem.Art(poster),Default) + Skin.HasSetting(EnableFakeDiscArt)">$INFO[ListItem.Art(poster)]</value>
 	 </variable>
 
     <!-- unused -->
@@ -828,7 +789,6 @@
      </variable>
      
      <variable name="channellogo">
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 		<value condition="Window.IsActive(tvchannels) | Window.IsActive(tvguide)">$INFO[ListItem.Icon]</value>
      </variable>
      
@@ -840,8 +800,6 @@
      </variable>
      
      <variable name="listitem_genre">
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</value>
         <value>$INFO[ListItem.Genre]</value>
      </variable>
 
@@ -852,7 +810,7 @@
      </variable>
      
      <variable name="infolinevar">
-        <value condition="String.IsEqual(Container(900).ListItem.Property(infoline),library_info) | [!Window.IsActive(Home) + Skin.String(infoline,library_info)]">[B]$LOCALIZE[20342]: [/B]$INFO[Window(Home).Property(Movies.Count)]  •  [B]$LOCALIZE[20343]: [/B]$INFO[Window(Home).Property(TVShows.Count)]  •  [B]$LOCALIZE[24001]: [/B]$INFO[Window(Home).Property(SkinHelper.TotalAddons)]</value>
+        <value condition="String.IsEqual(Container(900).ListItem.Property(infoline),library_info) | [!Window.IsActive(Home) + Skin.String(infoline,library_info)]">[B]$LOCALIZE[20342]: [/B]$INFO[Window(Home).Property(Movies.Count)]  •  [B]$LOCALIZE[20343]: [/B]$INFO[Window(Home).Property(TVShows.Count)]  •  [B]$LOCALIZE[24001]: [/B]</value>
         <value condition="String.IsEqual(Container(900).ListItem.Property(InfoLine),movie_library) | [!Window.IsActive(Home) + Skin.String(infoline,movie_library)]">[B]$LOCALIZE[20342]: [/B]$INFO[Window(Home).Property(Movies.Count)][B]  •  $LOCALIZE[16102]: [/B]$INFO[Window(Home).Property(Movies.Watched)][B]  •  $LOCALIZE[16101]: [/B]$INFO[Window(Home).Property(Movies.UnWatched)]</value>
 		<value condition="String.IsEqual(Container(900).ListItem.Property(InfoLine),tvshows_library) | [!Window.IsActive(Home) + Skin.String(infoline,tvshows_library)]">[B]$LOCALIZE[20343]: [/B]$INFO[Window(Home).Property(TVShows.Count)][B]  •  $LOCALIZE[20360]: [/B]$INFO[Window(Home).Property(Episodes.Count)][B]  •  $LOCALIZE[16101]: [/B]$INFO[Window(Home).Property(Episodes.UnWatched)]</value>
 		<value condition="String.IsEqual(Container(900).ListItem.Property(InfoLine),music_library) | [!Window.IsActive(Home) + Skin.String(infoline,music_library)]">[B]$LOCALIZE[133]: [/B]$INFO[Window(Home).Property(Music.ArtistsCount)][B]  •  $LOCALIZE[132]: [/B]$INFO[Window(Home).Property(Music.AlbumsCount)][B]  •  $LOCALIZE[134]: [/B]$INFO[Window(Home).Property(Music.SongsCount)]</value>
@@ -862,220 +820,10 @@
 		<value condition="String.IsEqual(Container(900).ListItem.Property(InfoLine),weather) | [!Window.IsActive(Home) + Skin.String(infoline,weather)]">[B]$INFO[Weather.Location]: [/B]$INFO[Weather.Conditions]</value>
 		<value condition="String.IsEqual(Container(900).ListItem.Property(InfoLine),musicvideo_library) | [!Window.IsActive(Home) + Skin.String(infoline,musicvideo_library)]">[B]$LOCALIZE[20389]: [/B]$INFO[Window(Home).Property(MusicVideos.Count)][B]  •  $LOCALIZE[16102]: [/B]$INFO[Window(Home).Property(MusicVideos.Watched)][B]  •  $LOCALIZE[16101]: [/B]$INFO[Window(Home).Property(MusicVideos.UnWatched)]</value>
 		<value condition="String.IsEqual(Container(900).ListItem.Property(InfoLine),sysinfo) | [!Window.IsActive(Home) + Skin.String(infoline,sysinfo)]">[B]$LOCALIZE[31257] [/B]$INFO[System.memory(used.percent)][B]  •  $LOCALIZE[13271] [/B]$INFO[System.CPUUsage]</value>
-        <value condition="String.IsEqual(Container(900).ListItem.Property(InfoLine),addonsinfo) | [!Window.IsActive(Home) + Skin.String(infoline,addonsinfo)]">[B]$LOCALIZE[20161] $LOCALIZE[24001]: [/B]$INFO[Window(Home).Property(SkinHelper.TotalAddons)][B]  •  [/B][B]$LOCALIZE[1036]: [/B]$INFO[Window(Home).Property(SkinHelper.TotalFavourites)]</value>
-        <value condition="String.IsEqual(Container(900).ListItem.Property(InfoLine),backgroundtitle)">$VAR[infoline_background]</value>
+        <value condition="String.IsEqual(Container(900).ListItem.Property(InfoLine),addonsinfo) | [!Window.IsActive(Home) + Skin.String(infoline,addonsinfo)]">[B]$LOCALIZE[20161] $LOCALIZE[24001]: [/B]</value>
         <value condition="!Window.IsActive(Home) + Skin.String(infoline,title)">$INFO[ListItem.Title]</value>
         <value condition="!Window.IsActive(Home) + Skin.String(infoline,totalsortby)">$INFO[Container.NumItems,, $LOCALIZE[31034]] $INFO[Control.GetLabel(3),• ]</value>
         <value condition="!Window.IsActive(Home) + Skin.String(infoline,total)">$INFO[Container.NumItems,, $LOCALIZE[31034]]</value>
-     </variable>
-     
-     <variable name="infoline_background">
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllMoviesBackground))">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllTvShowsBackground))">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllMusicVideosBackground))">$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.RecentMusicBackground))">$INFO[Window(Home).Property(SkinHelper.RecentMusicBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllMusicBackground))">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.GlobalFanartBackground))">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.InProgressMoviesBackground))">$INFO[Window(Home).Property(SkinHelper.InProgressMoviesBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.RecentMoviesBackground))">$INFO[Window(Home).Property(SkinHelper.RecentMoviesBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.UnwatchedMoviesBackground))">$INFO[Window(Home).Property(SkinHelper.UnwatchedMoviesBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.InProgressShowsBackground))">$INFO[Window(Home).Property(SkinHelper.InProgressShowsBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.RecentEpisodesBackground))">$INFO[Window(Home).Property(SkinHelper.RecentEpisodesBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllVideosBackground))">$INFO[Window(Home).Property(SkinHelper.AllVideosBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.RecentVideosBackground))">$INFO[Window(Home).Property(SkinHelper.RecentVideosBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.InProgressVideosBackground))">$INFO[Window(Home).Property(SkinHelper.InProgressVideosBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.PvrBackground))">$INFO[Window(Home).Property(SkinHelper.PvrBackground.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.PicturesBackground))">$INFO[Window(Home).Property(SkinHelper.PicturesBackground.Title)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.image))">$INFO[Window(Home).Property(emby.nodes.0.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.image))">$INFO[Window(Home).Property(emby.nodes.1.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.image))">$INFO[Window(Home).Property(emby.nodes.2.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.image))">$INFO[Window(Home).Property(emby.nodes.3.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.image))">$INFO[Window(Home).Property(emby.nodes.4.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.image))">$INFO[Window(Home).Property(emby.nodes.5.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.image))">$INFO[Window(Home).Property(emby.nodes.6.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.image))">$INFO[Window(Home).Property(emby.nodes.7.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.image))">$INFO[Window(Home).Property(emby.nodes.8.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.image))">$INFO[Window(Home).Property(emby.nodes.9.image.Title)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.recent.image))">$INFO[Window(Home).Property(emby.nodes.0.recent.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.recent.image))">$INFO[Window(Home).Property(emby.nodes.1.recent.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.recent.image))">$INFO[Window(Home).Property(emby.nodes.2.recent.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.recent.image))">$INFO[Window(Home).Property(emby.nodes.3.recent.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.recent.image))">$INFO[Window(Home).Property(emby.nodes.4.recent.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.recent.image))">$INFO[Window(Home).Property(emby.nodes.5.recent.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.recent.image))">$INFO[Window(Home).Property(emby.nodes.6.recent.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.recent.image))">$INFO[Window(Home).Property(emby.nodes.7.recent.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.recent.image))">$INFO[Window(Home).Property(emby.nodes.8.recent.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.recent.image))">$INFO[Window(Home).Property(emby.nodes.9.recent.image.Title)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.0.unwatched.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.1.unwatched.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.2.unwatched.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.3.unwatched.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.4.unwatched.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.5.unwatched.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.6.unwatched.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.7.unwatched.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.8.unwatched.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.9.unwatched.image.Title)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.0.inprogress.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.1.inprogress.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.2.inprogress.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.3.inprogress.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.4.inprogress.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.5.inprogress.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.6.inprogress.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.7.inprogress.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.8.inprogress.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.9.inprogress.image.Title)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.0.recentepisodes.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.1.recentepisodes.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.2.recentepisodes.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.3.recentepisodes.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.4.recentepisodes.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.5.recentepisodes.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.6.recentepisodes.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.7.recentepisodes.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.8.recentepisodes.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.9.recentepisodes.image.Title)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.0.image))">$INFO[Window(Home).Property(playlist.0.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.1.image))">$INFO[Window(Home).Property(playlist.1.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.2.image))">$INFO[Window(Home).Property(playlist.2.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.3.image))">$INFO[Window(Home).Property(playlist.3.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.4.image))">$INFO[Window(Home).Property(playlist.4.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.5.image))">$INFO[Window(Home).Property(playlist.5.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.6.image))">$INFO[Window(Home).Property(playlist.6.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.7.image))">$INFO[Window(Home).Property(playlist.7.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.8.image))">$INFO[Window(Home).Property(playlist.8.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.9.image))">$INFO[Window(Home).Property(playlist.9.image.Title)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.0.image))">$INFO[Window(Home).Property(favorite.0.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.1.image))">$INFO[Window(Home).Property(favorite.1.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.2.image))">$INFO[Window(Home).Property(favorite.2.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.3.image))">$INFO[Window(Home).Property(favorite.3.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.4.image))">$INFO[Window(Home).Property(favorite.4.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.5.image))">$INFO[Window(Home).Property(favorite.5.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.6.image))">$INFO[Window(Home).Property(favorite.6.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.7.image))">$INFO[Window(Home).Property(favorite.7.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.8.image))">$INFO[Window(Home).Property(favorite.8.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.9.image))">$INFO[Window(Home).Property(favorite.9.image.Title)]</value>
-
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.generic.image))">$INFO[Window(Home).Property(netflix.generic.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.generic.mylist.image))">$INFO[Window(Home).Property(netflix.generic.mylist.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.generic.suggestions.image))">$INFO[Window(Home).Property(netflix.generic.suggestions.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.generic.inprogress.image))">$INFO[Window(Home).Property(netflix.generic.inprogress.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.generic.recent.image))">$INFO[Window(Home).Property(netflix.generic.recent.Title)]</value>
-
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.movies.image))">$INFO[Window(Home).Property(netflix.movies.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.movies.mylist.image))">$INFO[Window(Home).Property(netflix.movies.mylist.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.movies.suggestions.image))">$INFO[Window(Home).Property(netflix.movies.suggestions.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.movies.recent.image))">$INFO[Window(Home).Property(netflix.movies.recent.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.tvshows.image))">$INFO[Window(Home).Property(netflix.tvshows.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.tvshows.mylist.image))">$INFO[Window(Home).Property(netflix.tvshows.mylist.image.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.tvshows.suggestions.image))">$INFO[Window(Home).Property(netflix.tvshows.suggestions.Title)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(netflix.tvshows.recent.image))">$INFO[Window(Home).Property(netflix.tvshows.recent.Title)]</value>
-
-        <value>$INFO[Container(900).ListItem.Property(BackgroundName)]</value>
-     </variable>
-     
-     <variable name="background_logo">
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllMoviesBackground))">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllTvShowsBackground))">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllMusicVideosBackground))">$INFO[Window(Home).Property(SkinHelper.AllMusicVideosBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.RecentMusicBackground))">$INFO[Window(Home).Property(SkinHelper.RecentMusicBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllMusicBackground))">$INFO[Window(Home).Property(SkinHelper.AllMusicBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.GlobalFanartBackground))">$INFO[Window(Home).Property(SkinHelper.GlobalFanartBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.InProgressMoviesBackground))">$INFO[Window(Home).Property(SkinHelper.InProgressMoviesBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.RecentMoviesBackground))">$INFO[Window(Home).Property(SkinHelper.RecentMoviesBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.UnwatchedMoviesBackground))">$INFO[Window(Home).Property(SkinHelper.UnwatchedMoviesBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.InProgressShowsBackground))">$INFO[Window(Home).Property(SkinHelper.InProgressShowsBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.RecentEpisodesBackground))">$INFO[Window(Home).Property(SkinHelper.RecentEpisodesBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.AllVideosBackground))">$INFO[Window(Home).Property(SkinHelper.AllVideosBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.RecentVideosBackground))">$INFO[Window(Home).Property(SkinHelper.RecentVideosBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.InProgressVideosBackground))">$INFO[Window(Home).Property(SkinHelper.InProgressVideosBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.PvrBackground))">$INFO[Window(Home).Property(SkinHelper.PvrBackground.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(SkinHelper.PicturesBackground))">$INFO[Window(Home).Property(SkinHelper.PicturesBackground.ClearLogo)]</value>
-     
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.image))">$INFO[Window(Home).Property(emby.nodes.0.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.image))">$INFO[Window(Home).Property(emby.nodes.1.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.image))">$INFO[Window(Home).Property(emby.nodes.2.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.image))">$INFO[Window(Home).Property(emby.nodes.3.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.image))">$INFO[Window(Home).Property(emby.nodes.4.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.image))">$INFO[Window(Home).Property(emby.nodes.5.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.image))">$INFO[Window(Home).Property(emby.nodes.6.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.image))">$INFO[Window(Home).Property(emby.nodes.7.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.image))">$INFO[Window(Home).Property(emby.nodes.8.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.image))">$INFO[Window(Home).Property(emby.nodes.9.image.ClearLogo)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.recent.image))">$INFO[Window(Home).Property(emby.nodes.0.recent.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.recent.image))">$INFO[Window(Home).Property(emby.nodes.1.recent.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.recent.image))">$INFO[Window(Home).Property(emby.nodes.2.recent.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.recent.image))">$INFO[Window(Home).Property(emby.nodes.3.recent.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.recent.image))">$INFO[Window(Home).Property(emby.nodes.4.recent.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.recent.image))">$INFO[Window(Home).Property(emby.nodes.5.recent.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.recent.image))">$INFO[Window(Home).Property(emby.nodes.6.recent.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.recent.image))">$INFO[Window(Home).Property(emby.nodes.7.recent.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.recent.image))">$INFO[Window(Home).Property(emby.nodes.8.recent.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.recent.image))">$INFO[Window(Home).Property(emby.nodes.9.recent.image.ClearLogo)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.0.unwatched.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.1.unwatched.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.2.unwatched.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.3.unwatched.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.4.unwatched.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.5.unwatched.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.6.unwatched.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.7.unwatched.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.8.unwatched.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.unwatched.image))">$INFO[Window(Home).Property(emby.nodes.9.unwatched.image.ClearLogo)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.0.inprogress.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.1.inprogress.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.2.inprogress.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.3.inprogress.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.4.inprogress.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.5.inprogress.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.6.inprogress.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.7.inprogress.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.8.inprogress.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.inprogress.image))">$INFO[Window(Home).Property(emby.nodes.9.inprogress.image.ClearLogo)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.0.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.0.recentepisodes.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.1.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.1.recentepisodes.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.2.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.2.recentepisodes.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.3.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.3.recentepisodes.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.4.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.4.recentepisodes.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.5.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.5.recentepisodes.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.6.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.6.recentepisodes.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.7.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.7.recentepisodes.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.8.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.8.recentepisodes.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(emby.nodes.9.recentepisodes.image))">$INFO[Window(Home).Property(emby.nodes.9.recentepisodes.image.ClearLogo)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.0.image))">$INFO[Window(Home).Property(playlist.0.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.1.image))">$INFO[Window(Home).Property(playlist.1.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.2.image))">$INFO[Window(Home).Property(playlist.2.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.3.image))">$INFO[Window(Home).Property(playlist.3.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.4.image))">$INFO[Window(Home).Property(playlist.4.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.5.image))">$INFO[Window(Home).Property(playlist.5.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.6.image))">$INFO[Window(Home).Property(playlist.6.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.7.image))">$INFO[Window(Home).Property(playlist.7.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.8.image))">$INFO[Window(Home).Property(playlist.8.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(playlist.9.image))">$INFO[Window(Home).Property(playlist.9.image.ClearLogo)]</value>
-        
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.0.image))">$INFO[Window(Home).Property(favorite.0.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.1.image))">$INFO[Window(Home).Property(favorite.1.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.2.image))">$INFO[Window(Home).Property(favorite.2.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.3.image))">$INFO[Window(Home).Property(favorite.3.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.4.image))">$INFO[Window(Home).Property(favorite.4.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.5.image))">$INFO[Window(Home).Property(favorite.5.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.6.image))">$INFO[Window(Home).Property(favorite.6.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.7.image))">$INFO[Window(Home).Property(favorite.7.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.8.image))">$INFO[Window(Home).Property(favorite.8.image.ClearLogo)]</value>
-        <value condition="String.IsEqual(Control.GetLabel(99004),Window(Home).Property(favorite.9.image))">$INFO[Window(Home).Property(favorite.9.image.ClearLogo)]</value>
      </variable>
      
      <variable name="DialogKeyboardAutoComplete">
@@ -1152,10 +900,8 @@
 
     <!-- Skin Helper Vars -->
     <variable name="CustomBackgroundSetting">
-        <value>$INFO[Window(Home).Property(SkinHelper.TopRatedMovies)]</value>
     </variable>
     <variable name="MusicBackground">
-        <value>$INFO[Window(Home).Property(SkinHelper.AllMusicSongsBackground.Wall)]</value>
     </variable>
 
     <variable name="focusWidget">
@@ -1284,31 +1030,17 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Season)) + !String.IsEmpty(Window(Home).Property(ListItem.Episode)) + !String.IsEqual(Window(Home).Property(ListItem.TvShowTitle),Window(Home).Property(ListItem.Title))">[B][UPPERCASE]S$INFO[Window(Home).Property(ListItem.Season)]E$INFO[Window(Home).Property(ListItem.Episode)]:[/UPPERCASE] $INFO[Window(Home).Property(ListItem.Title)][/B]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Title))">[B]$INFO[Window(Home).Property(ListItem.Title)][/B]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Label))">[B]$INFO[Window(Home).Property(ListItem.Label)][/B]</value>
-        <!--widgets fallback-->
-        <value condition="String.Contains(Container(900).ListItem.Property(widgetPath), plugin.video.youtube)">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.label)][CR]$INFO[Window(Home).Property(SkinHelper.ListItem.label2)][/B]</value>
-        <value condition="String.IsEqual(Window(Home).Property(SkinHelper.ListItem.DBTYPE), systeminfo)">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.label)][/B] $INFO[Window(Home).Property(SkinHelper.ListItem.label2)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Title)) + String.Contains(Window(Home).Property(SkinHelper.ListItem.FolderPath), pvr://)">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Title)][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Season)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Episode)) + !String.IsEqual(Window(Home).Property(SkinHelper.ListItem.TvShowTitle),Window(Home).Property(SkinHelper.ListItem.Title))">[B][UPPERCASE]S$INFO[Window(Home).Property(SkinHelper.ListItem.Season)]E$INFO[Window(Home).Property(SkinHelper.ListItem.Episode)]:[/UPPERCASE] $INFO[Window(Home).Property(SkinHelper.ListItem.Title)][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Title))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Title)][/B]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Label))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Label)][/B]</value>
     </variable>
     <variable name="HomeMenuWidgetInfoLabel2">
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Tagline))">$INFO[Window(Home).Property(ListItem.Tagline)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.TvShowTitle))">$INFO[Window(Home).Property(ListItem.TvShowTitle)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Artist))">$INFO[Window(Home).Property(ListItem.Artist)]</value>
-
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Tagline))">$INFO[Window(Home).Property(SkinHelper.ListItem.Tagline)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.TvShowTitle))">$INFO[Window(Home).Property(SkinHelper.ListItem.TvShowTitle)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Artist))">$INFO[Window(Home).Property(SkinHelper.ListItem.Artist)]</value>
     </variable>
     <variable name="HomeMenuWidgetInfoclearlogo">
         <value condition="!ControlGroup(77777).HasFocus + Control.IsVisible(1508) + !String.IsEmpty(Container(1508).ListItem.Art(clearlogo))">$INFO[Container(1508).ListItem.Art(clearlogo)]</value>
 
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ClearLogo))">$INFO[Window(Home).Property(ListItem.ClearLogo)]</value>
-
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
     </variable>
     <variable name="SpotLightWidgetInfoThumb">
         <!-- details widget -->
@@ -1335,13 +1067,6 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.Poster))">$INFO[Window(Home).Property(ListItem.Art.Poster)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.ChannelLogo))">$INFO[Window(Home).Property(ListItem.ChannelLogo)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.ChannelLogo))">$INFO[Window(Home).Property(ListItem.Art.ChannelLogo)]</value>
-        <!-- skinhelper fallback -->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.landscape))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.landscape)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Poster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ChannelLogo))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ChannelLogo)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Icon))">$INFO[Window(Home).Property(SkinHelper.ListItem.Icon)]</value>
     </variable>
     <variable name="HomeMenuWidgetInfoPlot">
         <!-- workaround - contains ''director: " is a workaround to ignore bad scraped outline plots, it should be solved at scraper level -->
@@ -1371,14 +1096,6 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PictureDesc))">$INFO[Window(Home).Property(ListItem.PictureDesc)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PictureComment))">$INFO[Window(Home).Property(ListItem.PictureComment)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.PictureKeywords))">$INFO[Window(Home).Property(ListItem.PictureKeywords)]</value>
-        <!-- skinhelper fallback-->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PlotOutline)) + Skin.HasSetting(WidgetsPreferPlotOutline) + !String.Contains(Window(Home).Property(SkinHelper.ListItem.PlotOutline),$LOCALIZE[20339]: )">$INFO[Window(Home).Property(SkinHelper.ListItem.PlotOutline)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))">$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]$INFO[Window(Home).Property(SkinHelper.ListItem.label2),[CR]]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Album_Description))">$INFO[Window(Home).Property(SkinHelper.ListItem.Album_Description)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Artist_Description))">$INFO[Window(Home).Property(SkinHelper.ListItem.Artist_Description)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PictureDesc))">$INFO[Window(Home).Property(SkinHelper.ListItem.PictureDesc)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PictureComment))">$INFO[Window(Home).Property(SkinHelper.ListItem.PictureComment)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.PictureKeywords))">$INFO[Window(Home).Property(SkinHelper.ListItem.PictureKeywords)]</value>
     </variable>
     <variable name="HomeMenuWidgetInfoPlotAlt">
         <!-- details widget -->
@@ -1402,37 +1119,21 @@
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.StartDateTime))">[B]$INFO[Window(Home).Property(ListItem.Label),, • ]$INFO[Window(Home).Property(ListItem.StartDateTime),, • ]$INFO[Window(Home).Property(ListItem.Duration),, min. • ]$INFO[Window(Home).Property(ListItem.Genre)][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Property(DateTime))) + !String.IsEmpty(Window(Home).Property(ListItem.Label2))">[B]$INFO[Window(Home).Property(ListItem.Label2),, • ]$INFO[Window(Home).Property(ListItem.Property(DateTime)),, • ]$INFO[Window(Home).Property(ListItem.Duration),, min. • ]$INFO[Window(Home).Property(ListItem.Genre)][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.StartTime))">[B]$INFO[Window(Home).Property(ListItem.Label),, • ]$INFO[Window(Home).Property(ListItem.StartTime),, • ]$INFO[Window(Home).Property(ListItem.Duration),, min. • ]$INFO[Window(Home).Property(ListItem.Genre)][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
-        <!-- skinhelper fallback -->
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.TvShowTitle))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.TvShowTitle),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Year),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Premiered),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration),, min. • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Year),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration),, min. • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Artist)) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Album))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Artist),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Album),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration)][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.StartDateTime))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Label),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.StartDateTime),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration),, min. • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Property(DateTime))) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Label2))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Label2),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Property(DateTime)),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration),, min. • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.StartTime))">[B]$INFO[Window(Home).Property(SkinHelper.ListItem.Label),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.StartTime),, • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Duration),, min. • ]$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)][/B][CR]$VAR[HomeMenuWidgetInfoPlot]</value>
         <value>$VAR[HomeMenuWidgetInfoPlot]</value>
     </variable>
 
     <variable name="HomeMenuWidgetInfoPoster">
-        <!-- animated poster if exists-->
-        <value condition="Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AnimatedPoster)]</value>
         <!-- use episode thumb for episode widgets if widget style is poster -->
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.Thumb)) + String.Contains(Window(Home).Property(widgetstyle),poster) + String.Contains(Window(Home).Property(ListItem.dbtype),episode)">$INFO[Window(Home).Property(ListItem.Art.Thumb)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb)) + String.Contains(Window(Home).Property(widgetstyle),poster) + String.Contains(Window(Home).Property(SkinHelper.ListItem.dbtype),episode)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
         <!-- use thumb if widget style is square -->
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.Thumb)) + String.Contains(Window(Home).Property(widgetstyle),square)">$INFO[Window(Home).Property(ListItem.Art.Thumb)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb)) + String.Contains(Window(Home).Property(widgetstyle),square)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
         <!-- use thumb for weather widget -->
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Thumb)) + String.Contains(Window.Property(ListItem.DBTYPE),weather)">$INFO[Window(Home).Property(ListItem.Thumb)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb)) + String.Contains(Window.Property(SkinHelper.ListItem.DBTYPE),weather)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
         <!-- use poster image if widget style is landscaped-->
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.Poster)) + String.Contains(Window(Home).Property(widgetstyle),landscape)">$INFO[Window(Home).Property(ListItem.Art.Poster)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.Fanart))">$INFO[Window(Home).Property(ListItem.Art.Fanart)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Art.Thumb))">$INFO[Window(Home).Property(ListItem.Art.Thumb)]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(ListItem.Icon))">$INFO[Window(Home).Property(ListItem.Icon)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Poster)) + String.Contains(Window(Home).Property(widgetstyle),landscape)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Fanart))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Fanart)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Thumb))">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</value>
-        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Icon))">$INFO[Window(Home).Property(SkinHelper.ListItem.Icon)]</value>
     </variable>
 
     <variable name="ActualIcon">

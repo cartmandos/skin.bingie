@@ -5,7 +5,6 @@
         <control type="button">
             <visible>false</visible>
             <onfocus>SetProperty(ShowViewSubMenu,show,Home)</onfocus>
-            <onfocus condition="!String.IsEmpty(Window.Property(SkinHelper.WidgetContainer)) + String.IsEmpty(Container(900).ListItem.property(widgetPath)) + Skin.HasSetting(UseSectionBackground)">ClearProperty(SkinHelper.WidgetContainer)</onfocus>
             <onfocus condition="!Skin.HasSetting(DisableAllSubmenus)">SetProperty(submenupos,$INFO[Container(900).Position],Home)</onfocus>
             <onfocus condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4445).NumItems,0)">SetProperty(submenu,show,Home)</onfocus>
             <onfocus condition="!Skin.HasSetting(DisableAllSubmenus) + Skin.HasSetting(AutoShowSubmenu) + Integer.IsGreater(Container(4445).NumItems,0) + Skin.String(SubmenuLayout, vertical)">SetFocus(4444,0)</onfocus>
@@ -42,7 +41,6 @@
         <onfocus>ClearProperty(ShowViewSubMenu,Home)</onfocus>
         <onfocus>SetProperty(ShowWidget,1,Home)</onfocus>
         <onfocus>SetProperty(widgetstyle,$PARAM[widgetstyle],Home)</onfocus>
-        <onfocus>SetProperty(SkinHelper.WidgetContainer,$PARAM[widgetid])</onfocus>
         <onfocus>SetProperty(LastFocusWidgetPos,$INFO[Container($PARAM[widgetid]).CurrentItem],Home)</onfocus>
     </include>
 
@@ -169,7 +167,6 @@
 
     <include name="WidgetPlaybackFocus">
         <onload condition="!String.IsEmpty(Window(Home).Property(LastFocusWidget))">RunScript(script.skin.helper.service,action=setfocus,control=$INFO[Window(Home).Property(LastFocusWidget)],relativeposition=$INFO[Window(Home).Property(LastFocusWidgetPos)],fallback=300)</onload>
-        <onunload condition="Control.HasFocus(77777) | ControlGroup(77777).HasFocus()">SetProperty(LastFocusWidget,$INFO[Window(Home).Property(SkinHelper.WidgetContainer)],Home)</onunload>
         <onunload condition="!Control.HasFocus(77777) + !ControlGroup(77777).HasFocus()">ClearProperty(LastFocusWidget,Home)</onunload>
     </include>
 </includes>

@@ -368,7 +368,7 @@
                     <fadetime>200</fadetime>
                     <texture background="true">$VAR[OSDImageDefault]</texture>
                     <aspectratio align="left" aligny="center">keep</aspectratio>
-					<visible>Player.HasVideo + [!String.IsEmpty(Window(Home).Property(SkinHelper.Player.AnimatedPoster)) | !String.IsEmpty(Player.Art(tvshow.poster)) | !String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
+					<visible>Player.HasVideo + [!String.IsEmpty(Player.Art(tvshow.poster)) | !String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
 				</control>
 				<!--Cover no poster-->
 				<control type="image">
@@ -379,7 +379,7 @@
 					<fadetime>200</fadetime>
 					<texture background="true">$VAR[OSDImageNoPoster]</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>Player.HasVideo + [String.IsEmpty(Window(Home).Property(SkinHelper.Player.AnimatedPoster)) + String.IsEmpty(Player.Art(tvshow.poster)) + String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
+					<visible>Player.HasVideo + [String.IsEmpty(Player.Art(tvshow.poster)) + String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
 				</control>
 
             </control>
@@ -661,7 +661,7 @@
 				<fadetime>200</fadetime>
 				<texture background="true">$VAR[OSDImageDefault]</texture>
 				<aspectratio align="left" aligny="bottom">stretch</aspectratio>
-                <visible>Player.HasVideo + [!String.IsEmpty(Window(Home).Property(SkinHelper.Player.AnimatedPoster)) | !String.IsEmpty(Player.Art(tvshow.poster)) | !String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
+                <visible>Player.HasVideo + [!String.IsEmpty(Player.Art(tvshow.poster)) | !String.IsEmpty(Player.Art(poster)) | !String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
             </control>
 
             <!-- Cover No Poster  -->
@@ -673,7 +673,7 @@
                 <fadetime>200</fadetime>
                 <texture background="true">$VAR[OSDImageNoPoster]</texture>
                 <aspectratio align="left" aligny="bottom">keep</aspectratio>
-                <visible>Player.HasVideo + [String.IsEmpty(Window(Home).Property(SkinHelper.Player.AnimatedPoster)) + String.IsEmpty(Player.Art(tvshow.poster)) + String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
+                <visible>Player.HasVideo + [String.IsEmpty(Player.Art(tvshow.poster)) + String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Window(Home).Property(SkinHelper.Player.Art.Poster))]</visible>
             </control>
 
 			<!--clearlogo-->
@@ -3011,7 +3011,6 @@
 	 </variable>
 
 	<variable name="OSDImageNoPoster">
-        <value condition="Skin.HasSetting(SkinHelper.EnablePVRThumbs)">http://localhost:52307/getthumb&amp;title=$ESCINFO[VideoPlayer.Title]</value>
 		<value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value>
 		<value condition="!String.IsEmpty(PVR.EpgEventIcon)">$INFO[PVR.EpgEventIcon]</value>
 		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>

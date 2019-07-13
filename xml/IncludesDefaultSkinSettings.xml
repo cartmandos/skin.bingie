@@ -13,10 +13,8 @@
     </include>
 
     <include name="SkinVersionCorrections">
-        <onload condition="!String.IsEmpty(Skin.String(SkinHelper.ShowInfoAtPlaybackStart))">Skin.Reset(SkinHelper.ShowInfoAtPlaybackStart)</onload>
-        <onload condition="!String.IsEmpty(SkinHelper.AutoCloseVideoOSD))">Skin.Reset(SkinHelper.AutoCloseVideoOSD)</onload>
         <!-- Finish & Update Skin Version -->
-        <onload>Skin.SetString(SkinVersion,1.03-RC1)</onload>
+        <onload>Skin.SetString(SkinVersion,0.1.1)</onload>
     </include>
 
     <include name="startupskinsettingsvalues">
@@ -41,7 +39,6 @@
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SmartShortcuts.emby)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SmartShortcuts.netflix)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(PVRGuideBackSideblade)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(pvrGuideOnFullscreenVideo)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(enableArtistBio)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(ShowLabelsPosterEpisodes)</onload>
@@ -59,7 +56,6 @@
         <onload condition="!Skin.String(osdmediaflagsstyle)">Skin.SetString(osdmediaflagsstyle, disabled)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View523_DetailsShowFanart)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(WatchedIndicator.Playing)</onload>
-        <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View525_HidePanel)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(View59_DetailsShowFanart)</onload>
         <onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(UseBingieOSD)</onload>

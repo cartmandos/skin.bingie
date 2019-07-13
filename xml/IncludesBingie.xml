@@ -142,7 +142,6 @@
         <onload>ClearProperty(ShowViewSubMenu,Home)</onload>
         <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
         <onunload condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunload>
-        <onunload>ClearProperty(SkinHelper.WidgetContainer)</onunload>
     </include>
 
     <!-- DETAILS ROW INCLUDES -->
@@ -788,16 +787,16 @@
 
     <!-- Bingie More Details (pseudo-random) -->
     <variable name="BingieMoreDetails">
-        <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</value>
-        <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">$INFO[Window(Home).Property(SkinHelper.ListItem.CastListing)]</value>
+        <!--<value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">$INFO[Window(Home).Property(SkinHelper.ListItem.Awards)]</value>-->
+        <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.CastAndRole)">$INFO[ListItem.CastAndRole]</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(ListItem.Top250,0)">$INFO[ListItem.Top250,#, $LOCALIZE[31859]]</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director]</value>
         <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,unknown)">$INFO[ListItem.Genre]</value>
     </variable>
     <!-- Bingie More Details Image (pseudo-random) -->
     <variable name="BingieMoreDetailsImage">
-        <value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">awards</value>
-        <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.CastListing))">star</value>
+        <!--<value condition="Integer.IsLessOrEqual(System.Time(ss),15) + !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Awards))">awards</value>-->
+        <value condition="Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.CastAndRole)">star</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + Integer.IsGreater(ListItem.Top250,0)">awards</value>
         <value condition="Integer.IsGreater(System.Time(ss),15) + Integer.IsLessOrEqual(System.Time(ss),30) + !String.IsEmpty(ListItem.Director)">director</value>
         <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,unknown)">genre</value>
@@ -931,12 +930,6 @@
 
     <variable name="CategoriesBricks">
         <value>$INFO[ListItem.Label,bingie/categories/,.jpg]</value>
-    </variable>
-
-    <variable name="CategoriesFanart">
-        <value condition="String.IsEqual(ListItem.Label,movies)">$INFO[Window(Home).Property(SkinHelper.AllMoviesBackground)]</value>
-        <value condition="String.IsEqual(ListItem.Label,tvshows)">$INFO[Window(Home).Property(SkinHelper.AllTvShowsBackground)]</value>
-        <value condition="String.IsEqual(ListItem.Label,recentlyadded)">$INFO[Window(Home).Property(SkinHelper.RecentVideosBackground)]</value>
     </variable>
 
     <!-- global background with fade-panel overlay -->

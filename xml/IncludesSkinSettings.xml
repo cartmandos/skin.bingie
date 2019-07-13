@@ -958,8 +958,8 @@
         <control type="button" id="13019">
             <include>SkinSettings_Button</include>
             <label>31449</label>
-            <label2>$INFO[Skin.String(SkinHelper.RandomFanartDelay.label)]</label2>
-            <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=SkinHelper.RandomFanartDelay,header=$LOCALIZE[31449])</onclick>
+            <label2>$INFO[Skin.String(RandomFanartDelay.label)]</label2>
+            <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=RandomFanartDelay,header=$LOCALIZE[31449])</onclick>
         </control>
         <!--background animation-->
         <control type="radiobutton" id="13018">
@@ -968,18 +968,6 @@
             <onclick>Skin.ToggleSetting(BackgroundAnimation)</onclick>
             <selected>Skin.HasSetting(BackgroundAnimation)</selected>
         </control>
-        <!--enable wall backgrounds-->
-        <control type="radiobutton" id="31812">
-            <include>SkinSettings_Button</include>
-            <label>31812</label>
-            <onclick>Skin.ToggleSetting(SkinHelper.EnableWallBackgrounds)</onclick>
-            <selected>Skin.HasSetting(SkinHelper.EnableWallBackgrounds)</selected>
-        </control>
-        <!-- skin helper backgrounds settings-->
-        <include content="SkinSettings_AddonButton">
-            <param name="id" value="31531" />
-            <param name="addon" value="script.skin.helper.backgrounds" />
-        </include>
         <!--background randomize-->
         <control type="radiobutton" id="31747">
             <include>SkinSettings_Button</include>
@@ -1050,7 +1038,7 @@
             <onclick>Skin.ToggleSetting(ShowFanartBackground)</onclick>
             <selected>Skin.HasSetting(ShowFanartBackground)</selected>
         </control>
-        <!--Show extra Fanart Background-->
+        <!--Show extra Fanart Background
         <control type="radiobutton" id="338">
             <include>SkinSettings_Button</include>
             <label>31207</label>
@@ -1058,15 +1046,15 @@
             <selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
             <visible>Skin.HasSetting(ShowFanartBackground)</visible>
             <visible>!Skin.HasSetting(LowPerformanceMode)</visible>
-        </control>
-        <!-- extra Fanart Background transition time-->
+        </control>-->
+        <!-- extra Fanart Background transition time
         <control type="button" id="339">
             <include>SkinSettings_Button</include>
             <label>31296</label>
             <label2>$INFO[Skin.String(extrafanartdelay.label)]</label2>
             <onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=extrafanartdelay,header=$LOCALIZE[31296])</onclick>
             <visible>Skin.HasSetting(ShowFanartBackground) + Skin.HasSetting(SkinHelper.EnableExtraFanart)</visible>
-        </control>
+        </control>-->
         <!-- prefer fanart in landscaped views -->
         <control type="radiobutton" id="13026">
             <include>SkinSettings_Button</include>
@@ -1889,19 +1877,6 @@
             <onclick>Skin.ToggleSetting(pvrGuideHighlightChannel)</onclick>
             <selected>Skin.HasSetting(pvrGuideHighlightChannel)</selected>
         </control>
-        <control type="radiobutton" id="31708">
-            <description>Enable artwork lookups for PVR</description>
-            <include>SkinSettings_Button</include>
-            <label>31708</label>
-            <onclick>Skin.ToggleSetting(SkinHelper.EnablePVRThumbs)</onclick>
-            <selected>Skin.HasSetting(SkinHelper.EnablePVRThumbs)</selected>
-        </control>
-        <include content="SkinSettings_ActionButton">
-            <param name="id" value="31709" />
-            <param name="label" value="31709" />
-            <param name="action" value="Addon.OpenSettings(script.module.metadatautils)" />
-            <param name="visible" value="Skin.HasSetting(SkinHelper.EnablePVRThumbs)" />
-        </include>
         <control type="radiobutton" id="13041">
             <include>SkinSettings_Button</include>
             <label>31237</label>
@@ -2908,13 +2883,6 @@
             <onclick>Skin.ToggleSetting(Home_RecordingIndicator)</onclick>
             <selected>Skin.HasSetting(Home_RecordingIndicator)</selected>
         </control>
-        <control type="radiobutton" id="31740">
-            <include>SkinSettings_Button</include>
-            <label>31740</label>
-            <onclick>Skin.ToggleSetting(Home_ShowBackgroundLogo)</onclick>
-            <selected>Skin.HasSetting(Home_ShowBackgroundLogo)</selected>
-            <visible>String.Contains(Skin.String(home_header),logo)</visible>
-        </control>
     </include>
 
     <!-- General Thumbs Border Settings -->
@@ -3308,7 +3276,6 @@
             <label>31326</label>
             <onclick>Skin.ToggleSetting(LowPerformanceMode)</onclick>
             <onclick condition="Skin.HasSetting(EnableFixedFocusWidgets)">Skin.ToggleSetting(EnableFixedFocusWidgets)</onclick>
-            <onclick>Skin.Reset(SkinHelper.EnableExtraFanart)</onclick>
             <onclick>Skin.SetString(SkinHelper.ShowInfoAtPlaybackStart,0)</onclick>
             <selected>Skin.HasSetting(LowPerformanceMode)</selected>
         </control>

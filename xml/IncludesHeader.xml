@@ -792,18 +792,6 @@
 		</control>    
 	</include>
     
-    <include name="BackgroundLogo">
-        <!-- background Logo image -->
-        <control type="image" id="198754">
-            <posx>35</posx>
-            <posy>10</posy>
-            <height>110</height>
-            <width>375</width>
-            <aspectratio align="left" aligny="center">keep</aspectratio>
-            <texture background="true">$VAR[background_logo]</texture>
-        </control>
-    </include>
-    
     <include name="HeaderLogo">
         <!-- Kodi Logo image -->
         <control type="image">
@@ -826,8 +814,6 @@
             <texture background="true">$INFO[Skin.String(CustomLogoImage)]</texture>
             <visible>Skin.String(CustomLogoImage) + String.IsEmpty(Control.GetLabel(198754))</visible>
         </control>
-        <!-- background Logo image -->
-        <include condition="Window.IsActive(Home) + Skin.HasSetting(Home_ShowBackgroundLogo)">BackgroundLogo</include>
     </include>
     
     <include name="NowRecordingIcon">
